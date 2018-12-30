@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<script type="text/javascript">
+//<![CDATA[
+    //判断URL是否合法，如果不合法则跳转
+    if (location.href.indexOf("http://127.0.0.1")!=-1)
+    {
+      var url = location.href.replace("http://127.0.0.1","http://localhost");
+      location.replace(url);
+    }
+//]]>
+</script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    var map;
+    
+    function load()
+    {
+      if (GBrowserIsCompatible()){
+        //创建GMap2对象
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(37.4419, -122.1419), 2);
+      }
+    }
+    
+//]]>
+</script>
+  </head>
+  <!--加载时调用load()函数加载地图，注意加上onunload="GUnload()"防止内存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id为map的DIV元素即为Google地图的容器-->
+    <div id="map" style="width: 500px; height: 300px"></div>
+  </body>
+</html>

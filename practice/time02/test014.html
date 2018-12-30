@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+<script language="javascript">
+//<![CDATA[
+     function load(){
+         var nomap=document.getElementById("nomap");
+		 GEvent.addDomListener(nomap,"click",function(){
+		    alert("第一個 回應訊息");
+		 });	
+		 
+	     GEvent.addDomListener(nomap,"click",function(){
+		    alert("第二個 回應訊息");
+		 });   
+	 }
+//]]>
+</script>
+</head>
+
+<body onload="load()">
+  <div id="nomap" style="background:#003366;color:white;width:300px;height:100px;text-align:center" align="center">
+    這個圖層裡未加載地圖點擊查看效果
+  </div>
+</body>
+</html>

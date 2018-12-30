@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+	<name>13-2.kml</name>
+	<StyleMap id="msn_ylw-pushpin_copy0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin_copy0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin_copy0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin_copy0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff5500</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin_copy0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff5500</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<name>13-2</name>
+		<styleUrl>#msn_ylw-pushpin_copy0</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+116.3391654670281,39.96529227616356,0 116.338844537966,39.96767463836265,0 116.338124684162,39.96900531118621,0 116.3364078775255,39.97112267661009,0 116.3350344808867,39.97284183355763,0 116.3344130296812,39.9737418343613,0 116.3340458496951,39.97522437400222,0 </coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>

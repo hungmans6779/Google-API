@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false
+       &amp;key=ABQIAAAASjhnTxkK4PHeTvotGA4KwRTQ5BsKmbHJTAiFcX8GQ-SBdwobzBSE-O4SbValEo6XyYc42W7BlewB4g"
+       type="text/javascript">
+    </script>
+    <script language="javascript">
+	//<!CDATA[
+	    var list1;
+		var list2;
+		var list3;
+	    var textNode;
+		 
+	   function load(){
+	     textNode=document.getElementById("textNode");		 	   
+	   }
+	   
+	   
+	           
+		function addMyListener(eventName,words){
+		  textNode.innerText=words;				  
+		   return GEvent.addDomListener(textNode,eventName,function(){
+		     alert(words);
+		  });    
+		}
+		 
+		function removeMyListener(eventName,words){
+		  textNode.innerText=words;
+		  GEvent.removeListener(eventName);
+		} 
+		
+		
+		function clearMyListener(eventName,words){
+		  textNode.innerText=words;		
+		  GEvent.clearListeners(textNode,eventName);
+		}
+		
+		
+		function clearMyAllListener(words){
+		  textNode.innerText=words;
+		  GEvent.clearInstanceListeners(textNode);
+		}
+	//]]>
+	</script>
+  </head>
+
+  <body onload="load()">
+    <div id="textNode" style="font-size:30px;color:blue;background:#999900;text-align:center;width:480px;height:320px" ></div>
+    <input type="button" value="新增list1 click的事件" onclick="list1=addMyListener('click',this.value)" />
+    <input type="button" value="移除list1 click的事件" onclick="removeMyListener(list1,this.value)" /><br />
+    <input type="button" value="新增list2 click的事件" onclick="list2=addMyListener('click',this.value)" />
+    <input type="button" value="移除list2 click的事件" onclick="removeMyListener(list2,this.value)" /><br />
+    <input type="button" value="新增mouseover 的事件"  onclick="list3=addMyListener('mouseover',this.value)" />
+    <input type="button" value="移除mouseover 的事件"  onclick="removeMyListener(list3,this.value)"  /><br />
+    <input type="button" value="移除所有click 的事件"   onclick="clearMyListener('click',this.value)" /><br />
+    <input type="button" value="移除所有的事件"         onclick="clearMyAllListener(this.value)" /><br />
+  </body>
+</html>

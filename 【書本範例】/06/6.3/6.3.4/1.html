@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    var map;
+    
+    //地理編碼查詢地點經緯度
+    function locate(address)
+    {
+        var geocoder=new GClientGeocoder();
+        geocoder.getLatLng(address,function(point)
+          {
+            if(!point)
+            {
+              alert(address+" not found");
+            }
+            else
+            {
+              map.panTo(point);
+              var marker = new GMarker(point);
+              map.addOverlay(marker);
+            }
+          });
+    }
+    
+    function load() {
+      if (GBrowserIsCompatible()) {  
+        map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        
+        var geoPoint= new GLatLng(39.92, -116.46);
+        
+        map.setCenter(geoPoint, 4);
+        
+        GEvent.addListener(map, "click", function()
+                    {
+                      locate(prompt("請輸入需要查詢的地址", ""));
+                    });
+      }
+    }
+    
+    //]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 500px; height: 300px"></div>
+  </body>
+</html>

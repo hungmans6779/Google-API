@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<style type="text/css">
+body, html, #map{
+	margin:0px;
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+    var map;  //全局GMap
+
+    //網頁加載時用於初始化Google地圖
+    function load()
+    {
+      if (GBrowserIsCompatible())       {
+        //創建GMap2對象
+        map = new GMap2(document.getElementById("map"));
+        
+        //縮放級別設得比較小，如不合適可自行設定合適的級別
+        map.setCenter(new GLatLng(37.4419, -122.1419), 1);
+        
+        //動態創建DOM節點
+        var ss = document.createElement("script");
+        
+        //設定腳本的src
+        ss.src = "http://maps.live.com/WiFiIPService/locate.ashx";
+        
+        //設定腳本的type
+        ss.type="text/javascript";
+        
+        //附加腳本到網頁的DOM
+        //除了往下面document.documentElement元素appendChild外
+        //也可以在document.body或其他DOM元素中添加新的節點
+        document.documentElement.appendChild(ss);
+      }
+    }
+    
+    //SetAutoLocateViewport()接口，移動到當前訪客的位置
+    //第一個參數latitude——當前IP所在的緯度
+    //第二個參數longitude——當前IP所在的經度
+    //第三個參數zoomlevel——當前適合於微軟Virtual Earth顯示的縮放級別（對Google Maps API程序基本無用）
+    //第四個參數unknown——該接口無相應信息，可能為是否開啟Virtual Earth地圖的Virtual 3D功能（對Google Maps API程序無用）
+    //第五個參數message——應該顯示消息（對Google Maps API程序無用）
+    function SetAutoLocateViewport(latitude, longitude, zoomlevel, unknown, message)
+    {
+      //訪客所處位置
+      var point = new GLatLng(latitude, longitude);
+      
+      //創建一個自定義的GIcon
+      var myIcon= new GIcon();
+      myIcon.image = "http://labs.google.com/ridefinder/images/mm_20_green.png";
+      myIcon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+      myIcon.iconSize = new GSize(12, 20);
+      myIcon.shadowSize = new GSize(22, 20);
+      myIcon.iconAnchor = new GPoint(6, 20);
+      myIcon.infoWindowAnchor = new GPoint(5, 1);
+      
+      //標記訪客位置
+      var marker = new GMarker(point,//創建自定義的GMarker
+                                {icon: myIcon,
+                                 title: "綠色標記為您當前的位置"});
+      
+      map.addOverlay(marker);
+      
+      //移動到當前訪客的位置
+      map.panTo(point);
+    }
+    
+    //ShowMessage()接口
+    function ShowMessage()
+    {
+      alert("暫時無法提供你的地理位置，請稍候再試！");
+    }
+    
+    //AutoLocateUndetectable()接口
+    function AutoLocateUndetectable()
+    {
+      alert("你的地理位置暫時無法被探測，請稍候再試！");
+    }
+    
+    //]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--
+    以下id為map的DIV元素即為Google地圖的容器
+    因為已在CSS中定義該層寬、高均為100%，故此處不必重複定義
+    -->
+    <div id="map"></div>
+  </body>
+</html>

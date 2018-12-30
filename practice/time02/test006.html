@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+
+   <script language="javascript"> 
+   //<![CDATA[
+     var map;
+	 function load(){
+	   if(GBrowserIsCompatible()){
+	     map=new GMap2(document.getElementById("map"));;
+		 map.addControl(new GMapTypeControl());
+		 map.addControl(new GLargeMapControl());
+		 map.addControl(new GSmallMapControl(),new GControlPosition(G_ANCHOR_BOTTOM_RIGHT,new GSize(10,10)));
+		 map.addControl(new GScaleControl(),new GControlPosition(G_ANCHOR_BOTTOM_LEFT,new GSize(10,10)));
+	     var gpoint1=new GLatLng(25.0579805152913,121.5400743484497); // 易遊網的座標
+		 map.setCenter(gpoint1,15);
+		 var marker=new GMarker(gpoint1);
+		 map.addOverlay(marker);
+	   }   
+	 }
+  
+  
+     function queryLatLng(){
+	    var address=document.getElementById("address").value;
+        var gecoder=new GClientGeocoder();
+        gecoder.getLatLng(address,function(point){
+        if(!point){
+          alert("搜尋不到地圖位置");              
+        }else{
+          map.panTo(point);
+		  document.getElementById('position').value=point;
+          var mark=new GMarker(point);
+		  map.addOverlay(mark);
+        }
+      });
+	}	 
+  
+    
+   //]]>
+   </script>
+  </head>
+
+  <body onload="load()"  onUnload="GUnload()" >
+    <div id="map" style="width:800px;height:300px" align="center"></div>
+    <br />
+    <hr />
+    請輸入：<input type="text" id="address" size="30" />
+    <button onClick="queryLatLng()">開始搜尋</button><br /><br />
+    位置：<input type="text" id="position" size="20" /><Br />
+  </body>
+</html>

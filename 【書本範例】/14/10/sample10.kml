@@ -1,0 +1,89 @@
+	<Folder>
+	<name>hubei</name>
+	<Folder>
+	<name>wuhan</name>
+	<Placemark id="1">
+		<name>qingchuanqiao</name>
+		<description>This is a bridge in Wuhan,China</description>
+		<address>Wuhan, China</address>
+		<LookAt>
+			<longitude>114.2797000</longitude>
+			<latitude>30.5658000</latitude>
+			<altitude>0</altitude>
+			<range>1000.0</range>
+			<tilt>0</tilt>
+			<heading>0</heading>
+		</LookAt>		       
+		<Point>
+			<coordinates>114.2797000,30.5658000,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2">
+		<name>donghu</name>
+		<description>This is a big lake in Wuhan,China</description>
+		<address>Wuhan, China</address>
+		<LookAt>
+			<longitude>114.3258000</longitude>
+			<latitude>30.5653000</latitude>
+			<altitude>0</altitude>
+			<range>5000.0</range>
+			<tilt>0</tilt>
+			<heading>0</heading>
+		</LookAt>		       
+		<Point>
+			<coordinates>114.3258000,30.5653000,0</coordinates>
+		</Point>
+	</Placemark>
+	</Folder>
+	<Folder>
+	<name>yichang</name>
+	<Placemark id="3">
+		<name>gezhouba</name>
+		<description>This is a power plant in Yichang,China</description>
+		<address>yichang, China</address>
+		<LookAt>
+			<longitude>111.2705000</longitude>
+			<latitude>30.7358000</latitude>
+			<altitude>0</altitude>
+			<range>4500.0</range>
+			<tilt>0</tilt>
+			<heading>0</heading>
+		</LookAt>		       
+		<Point>
+			<coordinates>111.2705000,30.7358000,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="4">
+		<name>gongludaqiao</name>
+		<description>This is a bridge in Yichang,China</description>
+		<address>yichang, China</address>
+		<LookAt>
+			<longitude>111.3922000</longitude>
+			<latitude>30.5686000</latitude>
+			<altitude>0</altitude>
+			<range>3500.0</range>
+			<tilt>0</tilt>
+			<heading>0</heading>
+		</LookAt>		       
+		<Point>
+			<coordinates>111.3922000,30.5686000,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="5">
+		<name>gongludaqiao</name>
+		<description>This is a bridge in Yichang,China</description>
+		<address>yichang, China</address>
+		<LookAt>
+			<longitude>111.2903000</longitude>
+			<latitude>30.6837000</latitude>
+			<altitude>0</altitude>
+			<range>1590.0</range>
+			<tilt>0</tilt>
+			<heading>0</heading>
+		</LookAt>		       
+		<Point>
+			<coordinates>111.2903000,30.6837000,0</coordinates>
+		</Point>
+	</Placemark>
+	</Folder>
+	</Folder>

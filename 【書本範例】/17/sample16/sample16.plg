@@ -1,0 +1,36 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: sample16 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\james\AppData\Local\Temp\RSP7A7A.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\_BOOK_9702_Â²_05569_Google_API\¥»®Ñ¥N½X\17\sample16\sample16Dlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\james\AppData\Local\Temp\RSP7A7A.tmp" 
+Creating temporary file "C:\Users\james\AppData\Local\Temp\RSP7A7B.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/sample16.pdb" /debug /machine:I386 /out:"Debug/sample16.exe" /pdbtype:sept 
+".\Debug\googleearth.obj"
+".\Debug\sample16.obj"
+".\Debug\sample16Dlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\sample16.res"
+]
+Creating command line "link.exe @C:\Users\james\AppData\Local\Temp\RSP7A7B.tmp"
+<h3>Output Window</h3>
+Compiling...
+sample16Dlg.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+sample16.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

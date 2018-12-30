@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<script src=   "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+<script language="javascript">
+<!--
+    var myIcon=new GIcon();
+	myIcon.image="http://labs.google.com/ridefinder/images/mm_20_green.png";  
+	myIcon.shadow="http://labs.google.com/ridefinder/images/mm_20_shadow.png";  
+	myIcon.iconSize=new GSize(12,20);
+	myIcon.shadowSize=new GSize(22,20);
+	myIcon.iconAnchor=new GPoint(6,20);
+	myIcon.infoWindowAnchor=new GPoint(5,1);
+	
+	
+    function load(){
+	   if(GBrowserIsCompatible()){
+	     var map=new GMap2(document.getElementById("map"));
+	     map.addControl(new GMapTypeControl());
+		 map.addControl(new GLargeMapControl());
+		 map.addControl(new GScaleControl(),new GControlPosition(G_ANCHOR_BOTTOM_LEFT,new GSize(10,10)));
+		 map.addControl(new GSmallMapControl,new GControlPosition(G_ANCHOR_BOTTOM_RIGHT,new GSize(10,10)));
+	     //var gp1=new GLatLng(25.0579805152913,121.5400743484497);    // 易遊網旅行社
+		 var gp1=new GLatLng(25.033668,121.519913);
+		 map.setCenter(gp1,13);
+		 
+		 var mark1=new GMarker(gp1,{title:'易遊網旅行社'});
+		 var tabs=[
+		            new GInfoWindowTab("Tab1","<div style='width:270px;color:red'>這是Tab1的內容</div>"),
+		            new GInfoWindowTab("Tab2","<div style='color:green'>這是Tab2的內容</div>"),
+				    new GInfoWindowTab("Tab3","<div style='color:blue'>這是Tab3的內容</div>")
+				  ]
+		 mark1.openInfoWindowTabsHtml(tabs);		 
+		 map.addOverlay(mark1);
+	
+		 
+	   } 
+	}
+-->
+</script>
+</head>
+
+<body onload="load()" onUnload="GUnload()" >
+  <div id="map" style="width:800px;height:400px" >
+</body>
+</html>

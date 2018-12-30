@@ -1,0 +1,34 @@
+<pingguoyuan>1-1</guchenglu>		<guchenglu>1-2</bajiaoyouleyuan>
+<bajiaoyouleyuan>1-3</babaoshan>	<babaoshan>1-4</yuquanlu>
+<yuquanlu>1-5</wukesong>		<wukesong>1-6</wanshoulu>
+<wanshoulu>1-7</gongzhufen>		<gongzhufen>1-8</muxidi>
+<muxidi>1-9</nanlishilu>		<nanlishilu>1-10</fuxingmen>
+<fuxingmen>1-11</xidan>			<xidan>1-12</tiananmenxi>
+<tiananmenxi>1-13</tiananmendong>	<tiananmendong>1-14</wangfujing>
+<wangfujing>1-15</dongdan>		<dongdan>1-16</jianguomen>
+<jianguomen>1-17</yonganli>		<yonganli>1-18</guomao>
+<guomao>1-19</dawanglu>			<dawanglu>1-20</sihui>
+<sihui>1-21</sihuidong>
+<xizhimen>2-1</chegongzhuang>		<chegongzhuang>2-2</fuchengmen>
+<fuchengmen>2-3</fuxingmen>		<fuxingmen>2-4</changchunjie>
+<changchunjie>2-5</xuanwumen>		<xuanwumen>2-6</hepingmen>
+<hepingmen>2-7</qianmen>		<qianmen>2-8</chongwenmen>
+<chongwenmen>2-9</beijingzhan>		<beijingzhan>2-10</jianguomen>
+<jianguomen>2-11</chaoyangmen>		<chaoyangmen>2-12</dongsishitiao>
+<dongsishitiao>2-13</dongzhimen>	<dongzhimen>2-14</yonghegong>
+<yonghegong>2-15</andingmen>		<andingmen>2-16</guloudajie>
+<guloudajie>2-17</jishuitan>		<jishuitan>2-18</xizhimen>
+<sihui>8-1</sihuidong>			<sihuidong>8-2</gaobeidian>
+<gaobeidian>8-3</guangboxueyuan>	<guangboxueyuan>8-4</shuangqiao>
+<shuangqiao>8-5</guanzhuang>		<guanzhuang>8-6</baliqiao>
+<baliqiao>8-7</tongzhoubeiyuan>		<tongzhoubeiyuan>8-8</guoyuan>
+<guoyuan>8-9</jiukeshu>			<jiukeshu>8-10</liyuan>
+<liyuan>8-11</linheli>			<linheli>8-12</tuqiao>
+<xizhimen>13-1</dazhongsi>		<dazhongsi>13-2</zhichunlu>
+<zhichunlu>13-3</wudaokou>		<wudaokou>13-4</shangdi>
+<shangdi>13-5</xierqi>			<xierqi>13-6</longze>
+<longze>13-7</huilongguan>		<huilongguan>13-8</huoying>
+<huoying>13-9</lishuiqiao>		<lishuiqiao>13-10</beiyuan>
+<beiyuan>13-11</wangjingxi>		<wangjingxi>13-12</shaoyaoju>
+<shaoyaoju>13-13</guangximen>		<guangximen>13-14</liufang>
+<liufang>13-15</dongzhimen>

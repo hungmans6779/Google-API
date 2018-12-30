@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+ <script language="javascript">
+ //<![CDATA[
+       var myIcon=new GIcon();
+	    myIcon.image="magnifier.gif";  
+	    myIcon.shadow="shadow.gif";  
+	    myIcon.iconSize=new GSize(44,44);
+	    myIcon.shadowSize=new GSize(1,1);
+	    myIcon.iconAnchor=new GPoint(18,20);
+	    myIcon.infoWindowAnchor=new GPoint(15,18);
+		
+		
+       var map;
+       function load(){
+	     if(GBrowserIsCompatible()){
+		    map=new GMap2(document.getElementById("map"));
+			map.enableScrollWheelZoom();
+		
+			map.addControl(new GMapTypeControl());
+			map.addControl(new GLargeMapControl());
+			map.addControl(new GOverviewMapControl());
+			var gp1=new GLatLng(25.0579805152913,121.5400743484497);
+			map.setCenter(gp1,15);
+			var marker=new GMarker(gp1,{icon:myIcon,title:'請將圖移到要放大地圖的位置',draggable:true,bouncy:true});
+			map.addOverlay(marker);
+		    var kh=new GKeyboardHandler(map);
+			
+			GEvent.addListener(marker,"dragend",function(){
+			  var zoom=map.getZoom();
+			  marker.showMapBlowup({zoomLevel:zoom,mapType:G_SATELLITE_MAP});
+			});
+			
+			
+		 }; 
+	   }
+ //]]>
+ </script>
+</head>
+
+<body onload="load()"  onUnload="GUnload()" >
+  <div id="map" style="width:800px;height:500px" ></div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    var map;
+    var iconA = new GIcon(G_DEFAULT_ICON, "http://maps.google.com/mapfiles/markerA.png");
+    var iconB = new GIcon(G_DEFAULT_ICON, "http://maps.google.com/mapfiles/markerB.png");
+    var iconC = new GIcon(G_DEFAULT_ICON, "http://maps.google.com/mapfiles/markerC.png");
+    //添加GControl()控件
+    function load() {
+      if (GBrowserIsCompatible()) {  
+        map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        
+        //在此把GLatLng()對象賦值給變量geoPoint0，方便多次使用
+        var geoPoint= new GLatLng(44,-89.7);
+        map.setCenter(geoPoint, 9);
+      }
+    }
+    
+    //以默認方式添加地標
+    function addDefaultMarkers()
+    {
+      map.addOverlay(new GMarker(new GLatLng(43.92,-90), {icon: iconA}));
+      map.addOverlay(new GMarker(new GLatLng(43.94,-90), {icon: iconB}));
+      map.addOverlay(new GMarker(new GLatLng(43.90,-90), {icon: iconC}));
+    }
+    
+    //以創建順序添加地標
+    function addCustomMarkers1()
+    {
+      function orderOfCreation(marker,b) {
+        return 1;
+      }
+      
+      map.addOverlay(new GMarker(new GLatLng(43.92,-89.8),{icon: iconA, zIndexProcess:orderOfCreation}));
+      map.addOverlay(new GMarker(new GLatLng(43.94,-89.8),{icon: iconB, zIndexProcess:orderOfCreation}));
+      map.addOverlay(new GMarker(new GLatLng(43.90,-89.8),{icon: iconC, zIndexProcess:orderOfCreation}));
+    }
+    
+    //以創建逆序添加地標
+    function addCustomMarkers2()
+    {
+      zindex = 0
+      function reverseOrderOfCreation(marker,b) {
+        return zindex--;
+      }
+      
+      map.addOverlay(new GMarker(new GLatLng(43.92,-89.6),{icon: iconA, zIndexProcess:reverseOrderOfCreation}));
+      map.addOverlay(new GMarker(new GLatLng(43.94,-89.6),{icon: iconB, zIndexProcess:reverseOrderOfCreation}));
+      map.addOverlay(new GMarker(new GLatLng(43.90,-89.6),{icon: iconC, zIndexProcess:reverseOrderOfCreation}));
+    }
+    
+    //以緯度逆序添加地標
+    function addCustomMarkers3()
+    {
+      function reverseLatitude(marker,b) {
+        return -GOverlay.getZIndex(marker.getPoint().lat());
+      }
+      
+      map.addOverlay(new GMarker(new GLatLng(43.92,-89.4),{icon: iconA, zIndexProcess:reverseLatitude}));
+      map.addOverlay(new GMarker(new GLatLng(43.94,-89.4),{icon: iconB, zIndexProcess:reverseLatitude}));
+      map.addOverlay(new GMarker(new GLatLng(43.90,-89.4),{icon: iconC, zIndexProcess:reverseLatitude}));
+    }
+    
+    //]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 400px; height: 300px"></div>
+    <input type="button" onclick="addDefaultMarkers()" value="緯度順序(預設)"/>
+    <input type="button" onclick="addCustomMarkers1()" value="建立順序"/>
+    <input type="button" onclick="addCustomMarkers2()" value="建立逆序"/>
+    <input type="button" onclick="addCustomMarkers3()" value="緯度逆序"/>
+  </body>
+</html>

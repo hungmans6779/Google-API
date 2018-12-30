@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+<script src="http://maps.google.com/maps?file=api&amp;v=2.78&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ"
+      type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    //聲明GMap對象
+    var map;
+    //聲明GPolygon對象
+    var polygon;
+    
+    function load()
+    {
+      if (GBrowserIsCompatible())
+      {
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(39.92, 116.46), 4);
+      }
+    }
+    
+    function addPolygonEncoded(){
+      polygon = new GPolygon.fromEncoded({
+           color: "#FF00FF",
+           polylines: [
+                       "_{srF_byeUnq`~@~np{@~qsHozbuA"
+                       ]
+        }); 
+      map.addOverlay(polygon);
+    }
+    function removePolygon(){
+      polygon.remove();
+    }
+//]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 500px; height: 400px;"></div>
+    <p>
+    <input type="button" value="新增編碼後的polygon" onclick="addPolygonEncoded()" />
+    <input type="button" value="移除編碼後的polygon" onclick="removePolygon()" />
+    </p>
+  </body>
+</html>

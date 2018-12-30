@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ"
+      type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    //聲明GMap對象
+    var map;
+    var eventinfo;
+    var mapcenter;
+    var zoomlevel;
+    var maptype;
+    
+    //更新信息，el為指定HTML元素，info為裡邊顯示的內容
+    function updateInfo(el, info)
+    {
+      el.innerHTML = info;
+    }
+    
+    //新增拖動事件監聽器
+    function addDragListener()
+    {
+       //監聽地圖上的事件
+       GEvent.addDomListener(map, 'dragstart', function()
+                    {
+                        updateInfo(eventinfo, "當前事件：dragstart");
+                    });
+       GEvent.addDomListener(map, 'drag', function()
+                    {
+                        updateInfo(eventinfo, "當前事件：drag");
+                        updateInfo(mapcenter, "當前地圖中心緯度：" + map.getCenter().lat() + " 經度" + map.getCenter().lng());
+                    });
+       GEvent.addDomListener(map, 'dragend', function()
+                    {
+                        updateInfo(eventinfo, "當前事件：dragend");
+                    });
+    }
+    
+    //新增縮放事件監聽器
+    function addZoomListener()
+    {
+       //監聽地圖上的縮放事件
+       GEvent.addDomListener(map, 'zoomstart', function()
+                    {
+                        updateInfo(eventinfo, "當前事件：zoomstart");
+                    });
+       GEvent.addDomListener(map, 'zoomend', function()
+                    {
+                        updateInfo(eventinfo, "當前事件：zoomend");
+                        updateInfo(zoomlevel, "當前地圖縮放級別：" + map.getZoom());
+                    });
+    }
+    
+    //新增maptypechanged事件監聽器
+    function addMapTypeListener()
+    {
+       //監聽地圖上maptypechanged事件
+       GEvent.addDomListener(map, 'maptypechanged', function()
+                    {
+                        updateInfo(eventinfo, "當前事件：maptypechanged");
+                        updateInfo(maptype, "當前地圖類型：" + map.getCurrentMapType().getName(false));
+                    });
+    }
+
+    function load()
+    {
+      if (GBrowserIsCompatible())
+      {
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(39.92, 116.46), 4);
+        
+        map.addControl( new GMapTypeControl() );
+        map.addControl( new GLargeMapControl() );
+        
+        eventinfo = document.getElementById("eventinfo");
+        mapcenter = document.getElementById("mapcenter");
+        zoomlevel = document.getElementById("zoomlevel");
+        maptype = document.getElementById("maptype");
+        
+        addDragListener();
+        addZoomListener();
+        addMapTypeListener();
+        
+      }
+    }
+    
+    
+//]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 500px; height: 400px;"></div>
+    <div id="eventinfo"></div>
+    <div id="mapcenter"></div>
+    <div id="zoomlevel"></div>
+    <div id="maptype"></div>
+    <!--p>
+    <input type="button" value="新增polyline" onclick="addPolyline()" />
+    <input type="button" value="移除polyline" onclick="removePolyline()" />
+    </p-->
+  </body>
+</html>

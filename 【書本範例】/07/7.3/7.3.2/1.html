@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps JavaScript API Example</title>
+    <!--导入Google Maps API库文件。注意将本代码中的API Key替换为前文申请到的API Key-->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+    var map;
+    var maprange;
+    
+    //添加GControl()控件
+    function load()
+    {
+      if (GBrowserIsCompatible())
+      {  
+        map = new GMap2(document.getElementById("map"));
+        //获取地图类型
+        var mt = map.getMapTypes();
+        
+        //重载缩放级别的相关函数
+        for (var i=0; i<mt.length; i++)
+        {
+          mt[i].getMinimumResolution = function() {return 8;}
+          mt[i].getMaximumResolution = function() {return 16;}
+        }
+        map.addControl(new GLargeMapControl());
+        map.addControl(new GMapTypeControl());
+        map.setCenter(new GLatLng(42, -87.5), 9);
+        
+        //设定范围
+        maprange = new GLatLngBounds(new GLatLng(41.5, -88),
+                                 new GLatLng(42.5, -87));
+        //监听地图移动的事件
+        GEvent.addListener(map, "dragend", function() {
+          checkBounds(maprange);
+        });
+      }
+    }
+    
+    function checkBounds(range)
+    {
+      //若range包含地图中心，无须操作，直接返回即可
+      if (range.contains(map.getCenter()))
+      {
+        return;
+      }
+      
+      var center = map.getCenter();
+      var x = center.lng();
+      var y = center.lat();
+      
+      //获取各个顶点的位置
+      var maxX = range.getNorthEast().lng();
+      var maxY = range.getNorthEast().lat();
+      var minX = range.getSouthWest().lng();
+      var minY = range.getSouthWest().lat();
+      
+      //取最接近地图中心的边界位置
+      if (x < minX) {x = minX;}
+      if (x > maxX) {x = maxX;}
+      if (y < minY) {y = minY;}
+      if (y > maxY) {y = maxY;}
+      map.setCenter(new GLatLng(y,x));
+    }
+    
+    //]]>
+    </script>
+  </head>
+  <!--加载时调用load()函数加载地图，注意加上onunload="GUnload()"防止内存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id为map的DIV元素即为Google地图的容器-->
+    <div id="map" style="width: 500px; height: 400px"></div>
+  </body>
+</html>

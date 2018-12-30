@@ -1,0 +1,455 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\sample13.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#include ""l.chs\\afxprint.rc""        // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\sample13.ico"
+IDR_SAMPLETYPE          ICON    DISCARDABLE     "res\\sample13Doc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "sample13 Microsoft 基礎類應用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "sample13\0"
+            VALUE "LegalCopyright", "版權所有 (C) 2007\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "sample13.EXE\0"
+            VALUE "ProductName", "sample13 應用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Taiwan) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_TRADITIONAL
+#pragma code_page(950)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "檔案(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",            ID_FILE_NEW
+        MENUITEM "打開(&O)...\tCtrl+O",         ID_FILE_OPEN
+        MENUITEM "保存(&S)\tCtrl+S",            ID_FILE_SAVE
+        MENUITEM "另存為(&A)...",               ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "打印(&P)...\tCtrl+P",         ID_FILE_PRINT
+        MENUITEM "打印預覽(&V)",                ID_FILE_PRINT_PREVIEW
+        MENUITEM "打印設置(&R)...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "最近文件",                    ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                    ID_APP_EXIT
+    END
+    POPUP "編輯(&E)"
+    BEGIN
+        MENUITEM "撤消(&U)\tCtrl+Z",            ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "剪切(&T)\tCtrl+X",            ID_EDIT_CUT
+        MENUITEM "複製(&C)\tCtrl+C",            ID_EDIT_COPY
+        MENUITEM "粘貼(&P)\tCtrl+V",            ID_EDIT_PASTE
+    END
+    POPUP "查看(&V)"
+    BEGIN
+        MENUITEM "工具欄(&T)",                  ID_VIEW_TOOLBAR
+        MENUITEM "狀態欄(&S)",                  ID_VIEW_STATUS_BAR
+    END
+    POPUP "說明(&H)"
+    BEGIN
+        MENUITEM "關於 sample13(&A)...",        ID_APP_ABOUT
+    END
+    POPUP "Google Earth應用"
+    BEGIN
+        MENUITEM "啟動",                        IDC_START
+        MENUITEM "搜索",                        IDC_SEARCH
+        MENUITEM "記錄",                        IDC_RECORDS
+        MENUITEM "清除記錄",                    IDC_CLEARRESULTS
+        MENUITEM "地理位置可視化",              IDC_VISIBLE
+        MENUITEM "退出",                        IDC_EXIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "關於 sample13"
+FONT 9, "宋體"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "sample13 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版權所有 (C) 2007",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "確定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_SEARCH DIALOG DISCARDABLE  0, 0, 173, 53
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "搜索"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "確定",IDOK,115,10,40,14
+    PUSHBUTTON      "取消",IDCANCEL,115,27,40,14
+    EDITTEXT        IDC_EDIT1,20,27,86,14,ES_AUTOHSCROLL
+    LTEXT           "請輸入你要搜索的位置：",IDC_STATIC,18,12,90,12
+END
+
+IDD_RECORDS DIALOGEX 0, 0, 187, 94
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "記錄"
+FONT 10, "System", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "確定",IDOK,130,7,50,14
+    PUSHBUTTON      "取消",IDCANCEL,130,24,50,14
+    EDITTEXT        IDC_EDIT1,17,48,59,14,ES_AUTOHSCROLL
+    LTEXT           "請輸入你將要顯示的位置名稱：",IDC_STATIC,16,21,71,22
+    EDITTEXT        IDC_EDIT2,150,64,12,14,ES_AUTOHSCROLL,WS_EX_TRANSPARENT | 
+                    WS_EX_STATICEDGE
+    LTEXT           "你已經記錄了",IDC_STATIC,100,66,51,8
+    LTEXT           "條",IDC_STATIC,162,66,9,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 46
+    END
+
+    IDD_RECORDS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "sample13\n\nSample\n\n\nSample13.Document\nSample Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "sample13"
+    AFX_IDS_IDLEMESSAGE     "就緒"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "擴展名"
+    ID_INDICATOR_CAPS       "大寫"
+    ID_INDICATOR_NUM        "數字"
+    ID_INDICATOR_SCRL       "滾動"
+    ID_INDICATOR_OVR        "改寫"
+    ID_INDICATOR_REC        "記錄"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "建立新文檔\n新建"
+    ID_FILE_OPEN            "打開一個現有文檔\n打開"
+    ID_FILE_CLOSE           "關閉活動文檔\n關閉"
+    ID_FILE_SAVE            "保存活動文檔\n保存"
+    ID_FILE_SAVE_AS         "將活動文檔以一個新文件名保存\n另存為"
+    ID_FILE_PAGE_SETUP      "改變打印選項\n頁面設置"
+    ID_FILE_PRINT_SETUP     "改變打印機及打印選項\n打印設置"
+    ID_FILE_PRINT           "打印活動文檔\n打印"
+    ID_FILE_PRINT_PREVIEW   "顯示整頁\n打印預覽"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "顯示程序信息，版本號和版權\n關於"
+    ID_APP_EXIT             "退出應用程序；提示保存文檔\n退出"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打開該文檔"
+    ID_FILE_MRU_FILE2       "打開該文檔"
+    ID_FILE_MRU_FILE3       "打開該文檔"
+    ID_FILE_MRU_FILE4       "打開該文檔"
+    ID_FILE_MRU_FILE5       "打開該文檔"
+    ID_FILE_MRU_FILE6       "打開該文檔"
+    ID_FILE_MRU_FILE7       "打開該文檔"
+    ID_FILE_MRU_FILE8       "打開該文檔"
+    ID_FILE_MRU_FILE9       "打開該文檔"
+    ID_FILE_MRU_FILE10      "打開該文檔"
+    ID_FILE_MRU_FILE11      "打開該文檔"
+    ID_FILE_MRU_FILE12      "打開該文檔"
+    ID_FILE_MRU_FILE13      "打開該文檔"
+    ID_FILE_MRU_FILE14      "打開該文檔"
+    ID_FILE_MRU_FILE15      "打開該文檔"
+    ID_FILE_MRU_FILE16      "打開該文檔"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "切換到下一個窗格\n下一窗格"
+    ID_PREV_PANE            "切換回前一個窗格\n前一窗格"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "將活動的窗口分隔成窗格\n分隔"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "刪除被選對象\n刪除"
+    ID_EDIT_CLEAR_ALL       "全部刪除\n全部刪除"
+    ID_EDIT_COPY            "複製被選對象並將其置於剪貼板上\n複製"
+    ID_EDIT_CUT             "剪切被選對象並將其置於剪貼板上\n剪切"
+    ID_EDIT_FIND            "查找指定的正文\n查找"
+    ID_EDIT_PASTE           "插入剪貼板內容\n粘貼"
+    ID_EDIT_REPEAT          "重複上一步操作\n重複"
+    ID_EDIT_REPLACE         "用不同的正文替換指定的正文\n替換"
+    ID_EDIT_SELECT_ALL      "選擇整個文檔\n選擇全部"
+    ID_EDIT_UNDO            "撤消最後一步操作\n撤消"
+    ID_EDIT_REDO            "重新執行先前已撤消的操作\n重新執行"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "顯示或隱藏工具欄\n顯隱工具欄"
+    ID_VIEW_STATUS_BAR      "顯示或隱藏狀態欄\n顯隱狀態欄"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "改變窗口大小"
+    AFX_IDS_SCMOVE          "改變窗口位置"
+    AFX_IDS_SCMINIMIZE      "將窗口縮小成圖標"
+    AFX_IDS_SCMAXIMIZE      "把窗口放大到最大尺寸"
+    AFX_IDS_SCNEXTWINDOW    "切換到下一個文檔窗口"
+    AFX_IDS_SCPREVWINDOW    "切換到先前的文檔窗口"
+    AFX_IDS_SCCLOSE         "關閉活動的窗口並提示保存所有文檔"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "把窗口恢復到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任務表"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "關閉打印預覽模式\n取消預閱"
+END
+
+#endif    // Chinese (Taiwan) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\sample13.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#include "l.chs\afxprint.rc"        // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

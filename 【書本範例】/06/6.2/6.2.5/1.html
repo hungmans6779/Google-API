@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT8YXSkg32FmSueYimfV_yj5DJguRRW5eQHwEBk10jwkDxLKNltT_kuQA" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    GMarker.prototype.setIndex = function(index)
+         {
+            this.index = index;
+         }
+    
+    
+    var map;
+    
+    var polyline;
+    
+    var markers = [];
+    //通過複製產生
+    var myIcon= new GIcon(G_DEFAULT_ICON, "http://www.google.com/mapfiles/marker.png");
+    
+    //創建地標
+    function createMarker(point)
+    {
+      var marker = new GMarker(point, {icon: myIcon, draggable: true, bouncy: true});
+      var index = markers.length;
+      
+      //雙擊地標刪除該地標
+      GEvent.addListener(marker, 'dblclick', function()
+                          {
+                            deleteMarker(marker);
+                          });
+      
+      //dragstart事件，換新圖標
+      GEvent.addListener(marker, 'dragstart', function()
+                          {
+                            marker.setImage("http://www.google.com/mapfiles/dd-start.png");
+                          });
+      //dragend事件，換回原圖標
+      GEvent.addListener(marker, 'dragend', function()
+                          {
+                            marker.setImage("http://www.google.com/mapfiles/marker.png");
+                          });
+      
+      //單擊顯示形成安排
+      GEvent.addListener(marker, 'click', function()
+                          {
+                            marker.openInfoWindowHtml("作些什麼呢？");
+                          });
+                          
+
+      //drag事件
+      //注意，如果新增了polyline，則拖動地標時需要重畫路線
+      GEvent.addListener(marker, 'drag', function()
+                          {
+                            redrawPolyline();
+                          });
+      
+      marker.setIndex(index);
+      markers[index] = marker;
+      map.addOverlay(marker);
+      
+      //每創建一個新的地標就重畫一次
+      redrawPolyline();
+    }
+    
+    //雙擊地標刪除該地標
+    function deleteMarker(marker)
+    {
+      //確定是否真的刪除
+      if(!confirm("確定刪除該地標嗎？")) return;
+      
+      var index = marker.index;
+      
+      //移除該圖層
+      map.removeOverlay(marker);
+      
+      //從數組中刪除指定GMarker並更新index
+      for(var i = index; i<markers.length-1; i++)
+      {
+          markers[i+1].setIndex(i);
+          markers[i] = markers[i+1];
+      }
+      markers.length = markers.length-1;
+    }
+    
+    function load()
+    {
+      if (GBrowserIsCompatible())
+      {  
+        map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        
+        var centerPoint= new GLatLng(39.92, 116.46);
+        
+        map.setCenter(centerPoint, 4);
+        
+        GEvent.addListener(map, 'click', function(overlay,  point)
+                         {
+                           if(point) createMarker(point);
+                         });
+      }
+    }
+    
+    //新增行程路線
+    function addPolyline()
+    {
+      //創建
+      var points = [];
+      for(var i=0; i<markers.length; i++)
+      {
+        points[i] = markers[i].getPoint();
+      }
+      
+      polyline = new GPolyline(
+        points, //GLatLng()數組 
+        "#FF0000", //折線顏色
+        10, //折線寬度
+        0.5 //透明度
+        ); 
+      map.addOverlay(polyline);
+    }
+    
+    //刪除行程路線
+    function removePolyline()
+    {
+      polyline.remove();
+      polyline = null;
+    }
+    
+    //重畫行程路線
+    function redrawPolyline()
+    {
+      if(polyline)
+      {
+        removePolyline();
+      }
+      addPolyline();
+    }
+
+//]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 600px; height: 500px"></div>
+  </body>
+</html>

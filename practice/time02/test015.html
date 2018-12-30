@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+<script language="javascript">
+<!--
+     var textnode;
+	 
+     var listener1;
+	 var listener2;
+	 var listener3;
+     function load(){
+	   textnode=document.getElementById("textNode");
+	 }
+	 
+	 function addListener(eventname,words){
+	   textnode.innerHTML=words;
+	   return GEvent.addDomListener(textnode,eventname,function(){
+	      alert(words);
+	   });
+	 }
+	 
+	 
+	 
+	 function removeListener(listener,words){
+	    textnode.innerHTML=words;
+	    GEvent.removeListener(listener);
+	 }
+
+	 
+	 function clearListeners(eventname,words){
+        textnode.innerHTML=words;
+		GEvent.clearListeners(textnode,eventname);	 
+	 }
+	 
+	 function clearInstanceListeners(words){
+	    textnode.innerHTML=words;
+		GEvent.clearInstanceListeners(textnode);
+	 }
+-->
+
+</script>
+</head>
+
+<body onload="load()" >
+  <div id="textNode" style="font-size:25px;background:#003366;color:#FFFFFF;text-align:center;width:300px;height:100px"> </div>
+  <button onClick="listener1=addListener('click',this.value);"  value="新增第一個 click 事件" >新增第一個 click 事件</button>
+  <button onClick="removeListener(listener1,this.value);"       value="移除第一個 click 事件" >移除第一個 click 事件</button>
+  <br />
+  <button onClick="listener2=addListener('click',this.value)"   value="新增第二個 click 事件" >新增第二個 click 事件</button>
+  <button onClick="removeListener(listener2,this.value)"        value="移除第二個 click 事件" >移除第二個 click 事件</button>
+  <br />
+  <button onClick="listener3=addListener('mouseover',this.value)"   value="新增第三個 mouserover 事件" >新增第三個 mouserover 事件</button>
+  <button onClick="removeListener(listener3,this.value)"            value="移除第三個 mouseover 事件" >移除第三個 mouseover 事件件</button>
+  <br />
+  <button onClick="clearListeners('click',this.value)" value="移除所有的click 的事件"  >移除所有的click 的事件</button>
+  <br />
+  <button onClick="clearInstanceListeners(this.value)" value="移除所有的事件"  >移除所有的的事件</button>
+  
+  
+</body>
+</html>

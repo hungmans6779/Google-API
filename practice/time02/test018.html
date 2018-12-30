@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+  <script language="javascript">
+  //<![CDATA[
+  
+      var myCenterIcon=new GIcon();
+	  myCenterIcon.image="http://labs.google.com/ridefinder/images/mm_20_green.png";  
+	  myCenterIcon.shadow="http://labs.google.com/ridefinder/images/mm_20_shadow.png";  
+	  myCenterIcon.iconSize=new GSize(12,20);
+	  myCenterIcon.shadowSize=new GSize(22,20);
+	  myCenterIcon.iconAnchor=new GPoint(6,20);
+	  myCenterIcon.infoWindowAnchor=new GPoint(5,1);
+		
+	  var myIcon=new GIcon(G_DEFAULT_ICON,"http://www.google.com/mapfiles/marker.png");
+		 
+      GMarker.prototype.setIndex=function(index){
+	    this.index=index;
+	  }
+		
+		
+		
+      var map;
+	  var markers=[];
+	  
+	  function load(){
+	  
+	    if(GBrowserIsCompatible()){
+		   map=new GMap2(document.getElementById("map"));
+		   map.addControl(new GMapTypeControl());
+		   map.addControl(new GLargeMapControl());
+		   map.addControl(new GScaleControl(),new GControlPosition(G_ANCHOR_BOTTOM_LEFT,new GSize(10,10)));
+		   map.addControl(new GSmallMapControl(),new GControlPosition(G_ANCHOR_BOTTOM_RIGHT,new GSize(10,10)));
+		   var gpCenter=new GLatLng(25.0579805152913,121.5400743484497);
+		   map.setCenter(gpCenter,15);
+		   var markerCenter=new GMarker(gpCenter,{icon:myCenterIcon});
+		   map.addOverlay(markerCenter);
+		   
+		   GEvent.addListener(map,'click',function(overlay,point){
+		      if(point){
+			    createMarker(point);
+			  }
+		   });
+		} 
+		
+	  }  // end load
+	  
+	  
+	
+	  
+	 
+	  
+	  function createMarker(point){
+	   
+	    var marker=new GMarker(point,{icon:myIcon,draggable:true,bouncy:true});
+		
+		GEvent.addListener(marker,'dragstart',function(){
+		  marker.setImage("http://www.google.com/mapfiles/dd-start.png");
+		});
+		
+		GEvent.addListener(marker,'dragend',function(){
+		  marker.setImage("http://www.google.com/mapfiles/marker.png");
+		});
+		
+		
+		GEvent.addListener(marker,'drag',function(){
+		  redrawPolyline();
+		});
+		
+	
+		GEvent.addListener(marker,"dblclick",function(){
+		   deleteMarker(marker);
+		   redrawPolyline();
+		});
+		
+		
+		var index=markers.length;
+		marker.setIndex(index);
+		markers[index]=marker;
+		map.addOverlay(marker);
+		
+		
+		redrawPolyline(); 
+	  } 
+	  
+	  
+	  
+	  function deleteMarker(marker){
+	   
+	   if(!confirm("確定刪除該座標嗎？")){ 
+	     return;
+	   }
+	    var index=marker.index;
+		map.removeOverlay(marker);
+		for(i=index;i<markers.length-1;i++){
+		   markers[i+1].setIndex(i);
+		   markers[i]=markers[i+1];
+		}
+		markers.length=markers.length-1; 	
+	  }
+	  
+	  
+	  var polyLine;
+	  function redrawPolyline(){
+	    if(polyLine){
+		  removePolyLine();
+		}
+		addPolyLine();  
+	  }
+	  
+	  function removePolyLine(){
+	    polyLine.remove();
+		polyLine=null;
+	  }
+	  
+	  var points=[];
+	  function addPolyLine(){
+	     for(var i=0;i<markers.length;i++){
+		   points[i]=markers[i].getPoint();
+		 }
+		 
+		 polyLine=new GPolyline(
+		   points,
+		   "#ff0000",
+		   5,
+		   0.5
+		 );
+		 map.addOverlay(polyLine);
+	  }
+  //]]>
+  </script>
+</head>
+
+  <body onload="load()"  onUnload="GUnload()">
+    <div id="map"  style="width:800px;height:400px" ></div>
+  </body>
+</html>

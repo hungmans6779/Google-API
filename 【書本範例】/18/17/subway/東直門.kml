@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+	<name>东直门.kml</name>
+	<StyleMap id="msn_icon28">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_icon28</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_icon28</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_icon28">
+		<IconStyle>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal4/icon28.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_icon28">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal4/icon28.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>东直门</name>
+		<LookAt>
+			<longitude>116.428782895902</longitude>
+			<latitude>39.94069723159169</latitude>
+			<altitude>0</altitude>
+			<range>299.4646399718117</range>
+			<tilt>-1.020831087420363e-011</tilt>
+			<heading>0.0007305722532799599</heading>
+		</LookAt>
+		<styleUrl>#msn_icon28</styleUrl>
+		<Point>
+			<coordinates>116.4287077643008,39.94073695966166,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

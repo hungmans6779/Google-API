@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT8YXSkg32FmSueYimfV_yj5DJguRRW5eQHwEBk10jwkDxLKNltT_kuQA" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    var map;  //全局GMap
+    var ctrl = new GSmallMapControl(); //全局GControl控件
+    var markers = []; //一組GMarker()對象
+    
+    //網頁加載時用於初始化Google地圖
+    function load()
+    {
+      if (GBrowserIsCompatible())
+      {
+        //創建GMap2對象，添加GControl控件
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(37.4419, 122.1419), 1);
+        map.addControl(ctrl);
+        
+        //隨機產生GMakers
+        for(var i=0; i<5; i++)
+        {
+          markers[i] = new GMarker(new GLatLng(Math.floor(Math.random()*80+i), Math.floor(Math.random()*170+i)));
+          map.addOverlay(markers[i]);
+        }
+        //為第一個marker打開一個信息窗口
+        markers[0].openInfoWindowHtml("<div style='color:green;'>這是一個<strong>測試</strong></div>");
+      }
+    }
+    
+    //關閉信息窗口
+    function closeInfoWindow()
+    {
+      map.closeInfoWindow();
+    }
+    
+    //移除GControl控件
+    function removeControl()
+    {
+      map.removeControl(ctrl);
+    }
+    
+    //移除markers[0]
+    function removeMarker()
+    {
+      map.removeOverlay(markers[0]);
+    }
+    
+    //移除所有markers
+    function clearMarkers()
+    {
+      map.clearOverlays();
+    }
+    //]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 500px; height: 300px"></div>
+    <input type="button" value="關閉信息窗口" onclick="closeInfoWindow()" />
+    <input type="button" value="移除GControl控件" onclick="removeControl()" />
+    <input type="button" value="移除markers[0]" onclick="removeMarker()" />
+    <input type="button" value="移除所有markers" onclick="clearMarkers()" />
+  </body>
+</html>

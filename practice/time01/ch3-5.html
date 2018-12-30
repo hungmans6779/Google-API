@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false
+      &amp;key=ABQIAAAASjhnTxkK4PHeTvotGA4KwRTQ5BsKmbHJTAiFcX8GQ-SBdwobzBSE-O4SbValEo6XyYc42W7BlewB4g"
+      type="text/javascript">
+    </script>
+    <script language="javascript">
+	//<![CDATA[
+	    var gm1;
+		var map;
+	    function load(){
+		  if(GBrowserIsCompatible()){
+		    map=new GMap2(document.getElementById("map"));
+			map.addControl(new GMapTypeControl());
+			map.addControl(new GLargeMapControl());
+			var gpoint1=new GLatLng(25.0579805152913,121.5400743484497);
+			gm1=new GMarker(gpoint1);
+			map.addOverlay(gm1);
+			map.setCenter(gpoint1,16);			
+		  }else{
+		    alert("載入Google Map 失敗 ！！！");
+		  }
+		}
+		
+		
+		function showInfoWindowHTML(){		 
+		  gm1.openInfoWindowHtml("<span style='color:red'>這是 openInfoWindowHTML 的視窗內容！！！</span>");
+		}
+		
+		
+		function showInfoWindow(){
+		  var divObj=document.createElement("div");
+		  divObj.style.color="blue";
+		  divObj.innerHTML="這是openInfoWindow 的視窗內容！！！";
+		  gm1.openInfoWindow(divObj);
+		}
+		
+		
+		
+		function showMapInfoWinodwHTML(){
+		  map.openInfoWindowHtml(map.getCenter(),"<span style='color:blue'>這是Map上的openInfoWindowHtml視窗內容</span>");
+		}
+		
+		
+		function showMapInfoWindow(){
+		  var divObj=document.createElement("div");
+		  divObj.style.color="yellow";
+		  divObj.innerHTML="這是 Map上的openInfoWindow 的視窗內容！！！";
+		  map.openInfoWindow(map.getCenter(),divObj);
+		}
+		
+	//]]>
+	</script>
+    
+  </head>
+
+  <body onload="load()"  onunload="GUnload()" >
+    <div id="map" style="width:480px;height:320px" align="center" ></div>
+    <input type="button" value="顯示marker 視窗1" onclick="showInfoWindowHTML()" />
+    <input type="button" value="顯示marker 視窗2" onclick="showInfoWindow()" /><br>
+    <input type="button" value="顯示map 上的視窗1"  onclick="showMapInfoWinodwHTML()" />
+    <input type="button" value="顯示map 上的視窗2"  onclick="showMapInfoWindow()" />
+    
+  </body>
+</html>

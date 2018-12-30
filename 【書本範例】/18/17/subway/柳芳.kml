@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+	<name>柳芳.kml</name>
+	<Style id="sn_icon28_copy1">
+		<IconStyle>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal4/icon28.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_icon28_copy1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_icon28_copy1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_icon28_copy1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_icon28_copy1">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal4/icon28.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>柳芳</name>
+		<LookAt>
+			<longitude>116.4269083031382</longitude>
+			<latitude>39.95688326177115</latitude>
+			<altitude>0</altitude>
+			<range>276.2612321714823</range>
+			<tilt>-1.82282186641902e-010</tilt>
+			<heading>-0.0005252851442896736</heading>
+		</LookAt>
+		<styleUrl>#msn_icon28_copy1</styleUrl>
+		<Point>
+			<coordinates>116.4267668700456,39.95686488575466,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

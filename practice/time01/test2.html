@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false
+      &amp;key=ABQIAAAASjhnTxkK4PHeTvotGA4KwRTQ5BsKmbHJTAiFcX8GQ-SBdwobzBSE-O4SbValEo6XyYc42W7BlewB4g"
+      type="text/javascript">
+    </script>
+    <script language="javascript">
+    //<![[
+	    var textNode;
+		var list1;
+	    var list2;
+	    var list3;
+		
+	    function load(){
+		   textNode=document.getElementById("nomap");
+		}
+		
+		
+		function addEventList(eventName,words){		  
+		  textNode.innerHTML=words;		  		  
+		  return GEvent.addDomListener(textNode,eventName,function(){
+		    alert(words);
+		  });		  
+		}
+		
+		
+		function removeList(objList,words){
+		  textNode.innerHtml=words;
+		  GEvent.removeListener(objList);
+		}
+		
+		
+		function clearThisEvent(eventName,words){
+		  textNode.innerHTML=words;
+		  GEvent.clearListeners(textNode,eventName);
+		}
+		
+		
+		function clearAllEvent(words){
+		  textNode.innerHTML=words;
+		  GEvent.clearInstanceListeners(textNode);
+		}
+	//]]>
+	</script>
+  </head>
+
+  <body onload="load()"  >
+    <div id="nomap" style="width:800px;height:480px;text-align:center;font-size:50px;color:red;background:#00CC99" > 這是Div </div>
+    <hr />
+    <input type="button" value="新增第一個click 的事件"     onclick="list1=addEventList('click',this.value)" />
+    <input type="button" value="移除第一個click 的事件"     onclick="removeList(list1,this.value)" /><br />
+    <input type="button" value="新增第二個click 的事件"     onclick="list2=addEventList('click',this.value)" />
+    <input type="button" value="移除第二個click 的事件"     onclick="removeList(list2,this.value)" /><br />
+    <input type="button" value="新增第三個mouseover 的事件" onclick="list3=addEventList('mouseover',this.value)" />
+    <input type="button" value="移除第三個mouseover 的事件" onclick="removeList(list3,this.value)" /><br />
+    <input type="button" value="移除所有的click 事件"       onclick="clearThisEvent('click',this.value)" /><Br />
+    <input type="button" value="移除所有的事件"             onclick="clearAllEvent(this.value)" /><br />
+    
+  </body>
+</html>

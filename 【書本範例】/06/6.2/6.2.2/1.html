@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>GEvent測試程序</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    //用於測試的DOM
+    var testnode;
+    
+    //3個獨立的監聽器
+    var listener1;
+    var listener2;
+    var listener3;
+    
+    //初始化用於測試的DOM testnode
+    function load()
+    {
+        testnode = document.getElementById("testnode");
+        
+    }
+    
+    //新增事件監聽器
+    function addlistener(eventname, words)
+    {
+        testnode.innerHTML = words;
+        return GEvent.addDomListener(testnode, eventname, function()
+                    {
+                        alert(words);
+                    });
+    }
+    
+    //刪除一個事件監聽器
+    function removelistener(listener, words)
+    {
+        testnode.innerHTML = words;
+        GEvent.removeListener(listener);
+    }
+    
+    //刪除指定對象的某一事件的監聽器
+    function removeEvent(eventname, words)
+    {
+        testnode.innerHTML = words;
+        GEvent.clearListeners(testnode, eventname);
+    }
+    
+    //刪除指定對象上的所有的事件監聽器
+    function removeAll(words)
+    {
+        testnode.innerHTML = words;
+        GEvent.clearInstanceListeners(testnode);
+    }
+    
+    
+//]]>
+    </script>
+  </head>
+  <body onload="load()">
+    <div id="testnode" style="font-size:50px; text-align:center; color: red; background: #CCC; width: 500px; height: 200px;"></div>
+    <div>
+      <input type="button" onclick="listener1 = addlistener('click', this.value)" value="新增第一個click事件" />
+      <input type="button" onclick="removelistener(listener1, this.value)" value="移除第一個click事件" />
+    </div>
+    <div>
+      <input type="button" onclick="listener2 = addlistener('click', this.value)" value="新增第二個click事件" />
+      <input type="button" onclick="removelistener(listener2, this.value)" value="移除第二個click事件" />
+    </div>
+    <div>
+      <input type="button" onclick="listener3 = addlistener('mouseover', this.value)" value="新增mouseover事件" />
+      <input type="button" onclick="removelistener(listener3, this.value)" value="移除mouseover事件" />
+    </div>
+    <div>
+      <input type="button" onclick="removeEvent('click', this.value)" value="移除所有click事件" />
+      <input type="button" onclick="removeAll(his.value)" value="移除所有事件" />
+    </div>
+  </body>
+</html>

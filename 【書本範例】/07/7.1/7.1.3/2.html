@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<script type="text/javascript">
+//<![CDATA[
+    //待加载的keymap，可自行添加
+    var keys = [
+                   ["http://localhost", "ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ"],
+                   ["http://127.0.0.1", "ABQIAAAA1j86tnUDFv8OAtC8dZVtKRRi_j0U6kJrkFvY4-OX2XYmEAa76BQZs0hKtiQgTp4t4c9kUTzIEmul_g"]
+                   ["http://192.168.1.1", "ABQIAAAA1j86tnUDFv8OAtC8dZVtKRRi_j0U6kJrkFvY4-OX2XYmEAa76BQZs0hKtiQgTp4t4c9jiangKuan"]
+               ];
+    
+    //加载库文件的函数
+    function loadApiLib(keymap)
+    {
+      for(var i=0; i<keymap.length; i++)
+      {
+        if(location.href.indexOf(keymap[i][0])>-1)
+        {
+          var s="<script src=\"http:\/\/maps.google.com\/maps?file=api&amp;v=2&amp;key=" + keymap[i][1] + "\" type=\"text\/javascript\"><\/script>";
+          document.write(s);
+          return;
+        }
+      }
+    }
+    
+    //加载库文件
+    loadApiLib(keys);
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+    //创建Google地图
+    var map;
+    function load()
+    {
+      if (GBrowserIsCompatible()){
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(37.4419, -122.1419), 2);
+      }
+    }
+    
+//]]>
+</script>
+  </head>
+  <!--加载时调用load()函数加载地图，注意加上onunload="GUnload()"防止内存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id为map的DIV元素即为Google地图的容器-->
+    <div id="map" style="width: 500px; height: 300px"></div>
+  </body>
+</html>

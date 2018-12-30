@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    function load()
+    {
+        var nomap = document.getElementById("nomap");
+        GEvent.addDomListener(nomap, "click", function()
+                    {
+                        alert("這是 第一個 事件響應");
+                    });
+        GEvent.addDomListener(nomap, "click", function()
+                    {
+                        alert("這是 第二個 事件響應");
+                    });
+    }
+//]]>
+    </script>
+  </head>
+  <body onload="load()">
+    <div id="nomap" style="font-size:50px; text-align:center; color: red; background: #CCC; width: 500px; height: 200px;">
+    這個圖層裡未加載地圖 點擊查看效果 同一事件兩次不同響應
+    </div>
+  </body>
+</html>

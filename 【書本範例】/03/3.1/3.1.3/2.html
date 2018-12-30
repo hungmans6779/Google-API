@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT8YXSkg32FmSueYimfV_yj5DJguRRW5eQHwEBk10jwkDxLKNltT_kuQA" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    var map;
+    
+    //創建一個自定義的GIcon
+    var myIcon= new GIcon();
+    //前景圖片
+    myIcon.image = "http://labs.google.com/ridefinder/images/mm_20_green.png";
+    //陰影圖片
+    myIcon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+    //前景圖片大小，長x寬
+    myIcon.iconSize = new GSize(12, 20);
+    //陰影圖片大小，長x寬
+    myIcon.shadowSize = new GSize(12, 20);
+    
+    //以下兩個屬性很難解釋，讀者可自行調整其數值以便理解其意義
+    // myIcon錨定點相對於myIcon圖片左上角的像素距離
+    myIcon.iconAnchor = new GPoint(6, 10);
+    //信息窗口相對於myIcon圖片左上角的像素距離
+    //關於信息窗口會在以後介紹
+    myIcon.infoWindowAnchor = new GPoint(5, 1);
+    
+    function load() {
+      if (GBrowserIsCompatible()) {  
+        map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        
+        var geoPoint0= new GLatLng(39.92, 116.46);
+        var geoPoint1= new GLatLng(49.92, 86.46);//創建另一個地理坐標geoPoint1
+
+        map.setCenter(geoPoint0, 2);
+        
+        var marker0 = new GMarker(geoPoint0, {title: "我有titile了"});
+        var marker1 = new GMarker(geoPoint1,//創建自定義的GMarker
+                                {icon: myIcon,
+                                 title: "把鼠標移上來，看看有什麼"});
+        map.addOverlay(marker0);
+        //顯示自定義了圖標的地標對象marker1
+        map.addOverlay(marker1);
+      }
+    }
+    //]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 500px; height: 300px"></div>
+  </body>
+</html>

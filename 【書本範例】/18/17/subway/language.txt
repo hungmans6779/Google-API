@@ -1,0 +1,34 @@
+<西直门>xizhimen</西直门>	<大钟寺>dazhongsi</大钟寺>
+<知春路>zhichunlu</知春路>	<五道口>wudaokou</五道口>
+<上地>shangdi</上地>		<西二旗>xierqi</西二旗>
+<龙泽>longze</龙泽>		<回龙观>huilongguan</回龙观>
+<霍营>huoying</霍营>		<立水桥>lishuiqiao</立水桥>
+<北苑>beiyuan</北苑>		<望京西>wangjingxi</望京西>
+<芍药居>shaoyaoju</芍药居>	<光熙门>guangximen</光熙门>
+<柳芳>liufang</柳芳>		<东直门>dongzhimen</东直门>
+<车公庄>chegongzhuang</车公庄>	<阜成门>fuchengmen</阜成门>
+<复兴门>fuxingmen</复兴门>	<长椿街>changchunjie</长椿街>
+<宣武门>xuanwumen</宣武门>	<和平门>hepingmen</和平门>
+<前门>qianmen</前门>		<崇文门>chongwenmen</崇文门>
+<北京站>beijingzhan</北京站>	<建国门>jianguomen</建国门>
+<朝阳门>chaoyangmen</朝阳门>	<东四十条>dongsishitiao</东四十条>
+<雍和宫>yonghegong</雍和宫>	<安定门>andingmen</安定门>
+<鼓楼大街>guloudajie</鼓楼大街>	<积水潭>jishuitan</积水潭>
+<苹果园>pingguoyuan</苹果园>	<古城路>guchenglu</古城路>
+<八角游乐园>bajiaoyouleyuan</八角游乐园>
+<八宝山>babaoshan</八宝山>	<玉泉路>yuquanlu</玉泉路>
+<五棵松>wukesong</五棵松>	<万寿路>wanshoulu</万寿路>
+<公主坟>gongzhufen</公主坟>	<木樨地>muxidi</木樨地>
+<南礼士路>nanlishilu</南礼士路>	<西单>xidan</西单>
+<天安门西>tiananmenxi</天安门西>
+<天安门东>tiananmendong</天安门东>
+<王府井>wangfujing</王府井>	<东单>dongdan</东单>
+<永安里>yonganli</永安里>	<国贸>guomao</国贸>
+<大望路>dawanglu</大望路>	<四惠>sihui</四惠>
+<四惠东>sihuidong</四惠东>	<高碑店>gaobeidian</高碑店>
+<广播学院>guangboxueyuan</广播学院>
+<双桥>shuangqiao</双桥>		<管庄>guanzhuang</管庄>
+<八里桥>baliqiao</八里桥>	<通州北苑>tongzhoubeiyuan</通州北苑>
+<果园>guoyuan</果园>		<九棵树>jiukeshu</九棵树>
+<梨园>liyuan</梨园>		<临河里>linheli</临河里>
+<土桥>tuqiao</土桥>

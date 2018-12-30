@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    var map;
+    
+    
+    function load() {
+      if (GBrowserIsCompatible()) {  
+        map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        
+        var geoPoint= new GLatLng(39.92, 116.46);
+        
+        map.setCenter(geoPoint, 4);
+        
+        //創建一個像放大鏡的地標
+        var myIcon= new GIcon();
+        myIcon.image = "magnifier.gif";
+        myIcon.shadow = "shadow.gif";
+        myIcon.iconSize = new GSize(44, 44);
+        myIcon.shadowSize = new GSize(1, 1);
+        myIcon.iconAnchor = new GPoint(18, 20);
+        myIcon.infoWindowAnchor = new GPoint(15, 18);
+        
+        var magnifier = new GMarker(geoPoint,
+                                { icon: myIcon,
+                                  draggable: true,
+                                  title: "請把放大鏡拖動到需要查看衛星圖的地方"
+                                 });
+        map.addOverlay(magnifier);
+        
+        //拖放結束時顯示衛星圖
+        GEvent.addListener(magnifier, "dragend", function()
+                    {
+                      var zoom = map.getZoom();
+                      magnifier.showMapBlowup({zoomLevel: zoom, mapType: G_SATELLITE_MAP });
+                    });
+      }
+    }
+    
+    //]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 500px; height: 500px"></div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false
+      &amp;key=ABQIAAAASjhnTxkK4PHeTvotGA4KwRTQ5BsKmbHJTAiFcX8GQ-SBdwobzBSE-O4SbValEo6XyYc42W7BlewB4g"
+      type="text/javascript">
+    </script>
+    <script language="javascript">
+	// <![CDATA[
+	    var mapCtl;
+		var map;
+		var mk=[];
+	    function load(){
+		  if(GBrowserIsCompatible()){
+		    map=new GMap2(document.getElementById("map"));
+			mapCtl=new GLargeMapControl();
+			map.addControl(mapCtl);
+			var gp1=new GLatLng(25.0579805152913,121.5400743484497);
+			map.setCenter(gp1,1);
+			
+			
+			for(i=0;i<5;i++){
+			  mk[i]=new GMarker(new GLatLng(Math.floor(Math.random()*70+i),Math.floor(Math.random()*120+i) ) );
+			  map.addOverlay(mk[i]);
+			}
+			mk[0].openInfoWindowHtml("<div style='green'>這是一個<strong>測試</strong></div>");
+		  }else{
+		    alert("載入GoogleMap地圖");
+		  }
+		}
+		
+		function closeInfoWindow(){
+		  map.closeInfoWindow();
+		}
+		
+		function removeCrl(){
+		  map.removeControl(mapCtl);
+		}
+		
+		
+		function removeMarker1(){
+		  map.removeOverlay(mk[0]);
+		}
+		
+		
+		function clearAllMarker(){
+		  map.clearOverlays();
+		}
+	//]]>
+	</script>	
+  </head>
+
+  <body onload="load()"  onunload="GUnload()" >
+    <div id="map" style="width:800px;height:500px" ></div>
+    <input type="button" value="關閉視窗系統" onclick="closeInfoWindow()" /><br>
+    <input type="button" value="移除GControl控制項"  onclick="removeCrl()"  /><br />
+    <input type="button" value="移除k[0] GMarker"  onclick="removeMarker1()"  /><br />
+    <input type="button" value="移除所有GMarker"  onclick="clearAllMarker()"  /><br />
+  </body>
+</html>

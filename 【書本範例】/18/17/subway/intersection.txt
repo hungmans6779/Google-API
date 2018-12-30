@@ -1,0 +1,3 @@
+<xizhimen>2,13</xizhimen>		<dongzhimen>2,13</dongzhimen>
+<fuxingmen>1,2</fuxingmen>		<jianguomen>1,2</jianguomen>
+<sihui>1,8</sihui>			<sihuidong>1,8</sihuidong>

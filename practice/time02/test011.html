@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google AJAX Feed API - Simple Example</title>
+   <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+   
+    <script type="text/javascript">
+    
+    google.load("feeds", "1");
+    
+    function initialize() {
+      var feed = new google.feeds.Feed("http://weather.yahoo.com/forecastrss?p=CHXX0138&u=c");
+      feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
+      feed.load(function(result) {
+        var container = document.getElementById("feed");
+        if (!result.error) {
+          var latitude = google.feeds.getElementsByTagNameNS(result.xmlDocument.documentElement, "http://www.w3.org/2003/01/geo/wgs84_pos#", "lat")[0].firstChild.nodeValue;
+          var longitude = google.feeds.getElementsByTagNameNS(result.xmlDocument.documentElement, "http://www.w3.org/2003/01/geo/wgs84_pos#", "long")[0].firstChild.nodeValue;
+          
+          var div = document.createElement("div");
+          div.appendChild(document.createTextNode("("+ latitude +", "+ longitude +")"));
+          container.appendChild(div);
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+    
+    </script>
+    <style type="text/css">
+	<!--
+	  .m{
+	   background:#CC0000;
+	  }
+	-->
+	</style>
+  </head>
+  <body>
+    <div id="feed"></div>
+  </body>
+</html>

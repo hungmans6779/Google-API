@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false
+      &amp;key=ABQIAAAASjhnTxkK4PHeTvotGA4KwRTQ5BsKmbHJTAiFcX8GQ-SBdwobzBSE-O4SbValEo6XyYc42W7BlewB4g"
+      type="text/javascript">      
+    </script>
+    <script language="javascript">
+	//<!CDATA[
+	   var map;
+	   var maprange;
+	   function load(){
+	     if(GBrowserIsCompatible()){
+		   map=new GMap2(document.getElementById("map"));
+		   map.addControl(new GMapTypeControl());
+		   map.addControl(new GLargeMapControl(),new GControlPosition(G_ANCHOR_TOP_LEFT,new GSize(10,10)));
+		   map.addControl(new GOverviewMapControl());
+		   
+		   // 重載縮放級別的相關函數
+		   var mt=map.getMapTypes();		
+           for(var i=0;i<mt.length;i++){
+		     mt[i].getMinimumResolution=function(){ return 8; }
+			 mt[i].getMaximumResolution=function(){ return 16; }
+		   }
+		   
+		   var gpoint1=new GLatLng(42,-87.5);
+		   map.setCenter(gpoint1,9);
+		   GEvent.addListener(map,"move",function(){
+		     var mapCenter=map.getCenter();
+		     document.getElementById("Y").value=mapCenter.lat();
+			 document.getElementById("X").value=mapCenter.lng();
+			 document.getElementById("zoomValue").value=map.getZoom();
+		   });
+		   		   
+		  // 設定範圍		   
+		  maprange=new GLatLngBounds(new GLatLng(41.5,-88),new GLatLng(42.5,-87));  // 西南角 - 東北角
+		  
+		  GEvent.addListener(map,"dragend",function(){
+		    checkBounds(maprange);
+		  });
+		    
+		 }else{
+		   alert("無法載入GoogleMap地圖！！！");
+		 }
+	   }
+	   
+	   
+	   function checkBounds(range){	   
+ 	     if(range.contains(map.getCenter())){
+		   return ;
+		 }
+		 
+		 var center=map.getCenter();
+		 var x=center.lng();  // 經度
+		 var y=center.lat();  // 緯度
+		 var minX=range.getSouthWest().lng();  // 經度(西南角)
+		 var minY=range.getSouthWest().lat();  // 緯度(西南角)
+		 var maxX=range.getNorthEast().lng();  // 經度(東北角)
+		 var maxY=range.getNorthEast().lat();  // 緯度(東北角)
+		 
+		 // 取最接近地圖中心的邊界位置
+		 if(x<minX) { x=minX; }
+		 if(x>maxX) { x=maxX; }
+		 if(y<minY) { y=minY; }
+		 if(y>maxY) { y=maxY; }		 		 
+		 map.setCenter(new GLatLng(y,x));
+	   }
+	   
+	 
+	//]]>
+	</script>
+  </head>
+
+  <body onload="load()" onunload="GUnload()">
+    <div id="map" style="width:800px;height:480px"></div>
+    緯度：<input type="text" id="Y" size="20" /><br>
+    經度：<input type="text" id="X" size="20" /><br>
+    倍率：<input type="text" id="ZoomValue" size="20" ><br>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<overlays>
+ <!--
+ point節點的lat,lng屬性 分別代表經緯度
+ -->
+ <!--
+ polyline節點的color屬性代表邊線顏色
+               width屬性代表邊線寬度
+               opacity屬性代表邊線透明度
+ -->
+ <polyline color="#FF0000" width="8" opacity="0.5">
+   <point lat="43.6" lng="110" />
+   <point lat="35.8" lng="119" />
+   <point lat="37.9" lng="102" />
+ </polyline>
+ 
+ <polyline color="#0000FF" width="6" opacity="0.5">
+   <point lat="42" lng="120" />
+   <point lat="45.8" lng="125" />
+   <point lat="37.9" lng="126" />
+   <point lat="47.9" lng="130" />
+ </polyline>
+ 
+ 
+ <!--
+ polygon節點的 color屬性代表邊線顏色
+               width屬性代表邊線寬度
+               opacity屬性代表邊線透明度
+               fillcolor屬性代表填充顏色
+               fillopacity屬性代表填充透明度
+ -->
+ <polygon color="#008800" width="4" alpha="0.8" fillcolor="#FF00FF" fillopacity="0" >
+   <point lat="39" lng="105" />
+   <point lat="43" lng="118" />
+   <point lat="35" lng="125" />
+   <point lat="31" lng="116" />
+   <point lat="36" lng="106" />
+   <point lat="39" lng="105" />
+ </polygon> 
+
+ <polygon color="#000000" width="2" alpha="1" fillcolor="#FF00FF" fillopacity="1" >
+   <point lat="27" lng="100" />
+   <point lat="30" lng="100" />
+   <point lat="30" lng="105" />
+   <point lat="27" lng="105" />
+   <point lat="27" lng="100" />
+ </polygon> 
+
+</overlays> 
+

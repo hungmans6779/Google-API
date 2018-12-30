@@ -1,0 +1,462 @@
+<Folder>
+<name>ground</name>
+<Folder>
+<name>ground1</name>
+<GroundOverlay>
+	<name>tianjing1</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T09:30:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/tianjing1.jpg</href>
+		<viewBoundScale>0.75</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.95696477235464</north>
+		<south>39.9288812745924</south>
+		<east>116.3371391079089</east>
+		<west>116.3052214073477</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>tianjing2</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:30:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/tianjing2.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.95443285503494</north>
+		<south>39.93074069635631</south>
+		<east>116.3352335744005</east>
+		<west>116.3068544062933</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>tianjing3</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:30:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T11:30:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/tianjing3.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.95556725795181</north>
+		<south>39.92887328793788</south>
+		<east>116.3354419124461</east>
+		<west>116.3066389678745</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>zuqiu1</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T15:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T16:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/zuqiu1.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.95550005959954</north>
+		<south>39.9284508499092</south>
+		<east>116.3358426805966</east>
+		<west>116.3073821682186</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>zuqiu2</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T16:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T17:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/zuqiu2.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.95237025342107</north>
+		<south>39.9308856250932</south>
+		<east>116.3454986001461</east>
+		<west>116.2959176100976</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>zuqiu3</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T17:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T17:30:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/zuqiu3.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.95198675319336</north>
+		<south>39.9312691253209</south>
+		<east>116.339151546625</east>
+		<west>116.3022646636186</west>
+	</LatLonBox>
+</GroundOverlay>
+</Folder>
+<Folder>
+<name>ground2</name>
+<GroundOverlay>
+	<name>pingpangqiu1</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T09:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/pingpangqiu1.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.94547556644497</north>
+		<south>39.9102799911941</south>
+		<east>116.4601393645364</east>
+		<west>116.4226163119702</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>pingpangqiu2</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T11:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/pingpangqiu2.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.94396742091407</north>
+		<south>39.91178899850748</south>
+		<east>116.4573058793503</east>
+		<west>116.4235276276146</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>pingpangqiu3</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T11:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T12:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/pingpangqiu3.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.94585205093981</north>
+		<south>39.9084300601623</south>
+		<east>116.4593407317983</east>
+		<west>116.4234135960349</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>lanqiu1</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T16:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T16:30:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/lanqiu1.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.94241439861716</north>
+		<south>39.91113098584514</south>
+		<east>116.4582049278476</east>
+		<west>116.4245487392885</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>lanqiu2</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T16:30:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T17:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/lanqiu2.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.9406603865289</north>
+		<south>39.92025289432801</south>
+		<east>116.4607818808052</east>
+		<west>116.4200563565886</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>lanqiu3</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T17:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T18:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/lanqiu3.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.94159314080943</north>
+		<south>39.91563671848177</south>
+		<east>116.4624623302205</east>
+		<west>116.4183725311073</west>
+	</LatLonBox>
+</GroundOverlay>
+</Folder>
+<Folder>
+<name>ground3</name>
+<GroundOverlay>
+	<name>juzhong1</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:30:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/juzhong1.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.98924988253142</north>
+		<south>39.95966818085093</south>
+		<east>116.3946635997811</east>
+		<west>116.3677603691656</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>juzhong2</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T10:30:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T11:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/juzhong2.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.98841359125467</north>
+		<south>39.96098222036248</south>
+		<east>116.3957069378992</east>
+		<west>116.3679601448298</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>juzhong3</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T11:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T12:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/juzhong3.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.98293605100213</north>
+		<south>39.96645963129107</south>
+		<east>116.399410959529</east>
+		<west>116.3636340971995</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>sheji1</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T15:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T16:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/sheji1.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.986485401448</north>
+		<south>39.96195532358738</south>
+		<east>116.3936909894877</east>
+		<west>116.3693559761174</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>sheji2</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T16:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T17:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/sheji2.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.98520312484665</north>
+		<south>39.96419268677049</south>
+		<east>116.4007698837238</east>
+		<west>116.3628971990053</west>
+	</LatLonBox>
+</GroundOverlay>
+<GroundOverlay>
+	<name>sheji3</name>
+		<TimePeriod>
+		<begin>
+		<TimeInstant>
+		<timePosition>2008-09-13T17:00:00Z</timePosition>
+		</TimeInstant>
+		</begin>
+		<end>
+		<TimeInstant>
+		<timePosition>2008-09-13T18:00:00Z</timePosition>
+		</TimeInstant>
+		</end>
+		</TimePeriod>
+	<Icon>
+		<href>E:/olympiad/sheji3.jpg</href>
+		<viewBoundScale>20</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>39.99246030931052</north>
+		<south>39.9564580188556</south>
+		<east>116.3957703253903</east>
+		<west>116.3678977241987</west>
+	</LatLonBox>
+</GroundOverlay>
+</Folder>
+</Folder>

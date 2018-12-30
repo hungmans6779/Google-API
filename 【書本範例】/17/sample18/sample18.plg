@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: sample18 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\james\AppData\Local\Temp\RSPE09C.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\_BOOK_9702_簡_05569_Google_API\本書代碼\17\sample18\Drew.cpp"
+"E:\_BOOK_9702_簡_05569_Google_API\本書代碼\17\sample18\sample18View.cpp"
+]
+Creating command line "cl.exe @C:\Users\james\AppData\Local\Temp\RSPE09C.tmp" 
+Creating temporary file "C:\Users\james\AppData\Local\Temp\RSPE09D.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/sample18.pdb" /debug /machine:I386 /out:"Debug/sample18.exe" /pdbtype:sept 
+".\Debug\Drew.obj"
+".\Debug\googleearth.obj"
+".\Debug\MainFrm.obj"
+".\Debug\sample18.obj"
+".\Debug\sample18Doc.obj"
+".\Debug\sample18View.obj"
+".\Debug\StdAfx.obj"
+".\Debug\sample18.res"
+]
+Creating command line "link.exe @C:\Users\james\AppData\Local\Temp\RSPE09D.tmp"
+<h3>Output Window</h3>
+Compiling...
+Drew.cpp
+Generating Code...
+Compiling...
+sample18View.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+sample18.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

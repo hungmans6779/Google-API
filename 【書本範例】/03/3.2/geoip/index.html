@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>GeoIP 搜索者</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ" type="text/javascript"></script>
+    <script type="text/javascript">
+//<![CDATA[
+    var map;  //全局GMap2對象
+    var marker;  //用於標識查詢IP的GMarker地標
+    //初始化
+    function load()
+    {
+      if (GBrowserIsCompatible())
+      {
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(39.92, 116.46), 2);
+        //添加相應GControl()控件
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        //設定地圖類型為混合地圖
+        map.setMapType(G_HYBRID_MAP);
+        //查詢當前訪客信息
+        getGeoInfo("");
+      }
+    }
+    
+    //響應查詢欄的迴車
+    //因為FireFox中event不是全局的，所以必須從相應DOM對象裡傳回event
+    //如下寫法可兼容IE和Firefox
+    function pressEnter(event, q)
+    {
+      //如果輸入了迴車，則執行查詢
+      if(event.keyCode==13 || event.keyCode==10)
+      {
+        getGeoInfo(q);
+      }
+    }
+    //查詢函數
+    function getGeoInfo(q)
+    {
+      GDownloadUrl("search.php?q="+q, function(data)
+            {
+               eval(data);
+            });
+    }
+    
+    //服務器端數據調用接口
+    function loadGeoInfo(q, ip, country_code, country_code3, country, region, city, latitude, longitude)
+    {
+       //新的信息窗口中的內容
+       var info = "<div align=\"left\" style=\"overflow:X; font-size:12px\">" 
+                + "<span style=\"font-size:14px\"><strong>" + q + "</strong></span><br />" 
+                + "<strong>ＩＰ:</strong> &nbsp;" + ip + "<br />" 
+                + "<strong>國家:</strong> &nbsp;" + country + "<br />" 
+                + "<strong>代碼:</strong> &nbsp;" + country_code + "(" + country_code3 + ")" + "<br />" 
+                + "<strong>省份:</strong> &nbsp;" + city + "<br />" 
+                + "<strong>城市:</strong> &nbsp;" + region + "<br />" 
+                + "<strong>經度:</strong> &nbsp;" + longitude + "<br />" 
+                + "<strong>緯度:</strong> &nbsp;" + latitude + "<br />" 
+                + "</div>";
+       //移動地圖中心到新的位置
+       var point = new GLatLng(latitude, longitude);
+       map.panTo(point);
+       //如果創建了marker地標，則關閉當前的信息窗口並移除地標
+       if(marker)
+       {
+         map.closeInfoWindow();
+         map.removeOverlay(marker);
+       }
+       //創建新的地標
+       marker = new GMarker(point);
+       map.addOverlay(marker);
+       //顯示信息窗口
+       marker.openInfoWindowHtml(info);
+    }
+    //]]>
+    </script>
+    <style>
+      td{
+        text-align:center;
+      }
+    </style>
+  </head>
+  <body onload="load()" onunload="GUnload()">
+    <table cellSpacing="0" cellPadding="0" width="600" border="0"  align="center">
+      <tbody>
+        <tr>
+          <td>
+            <img src="geoipseeker.jpg" title="geoipseeker" alt="geoipseeker" width="450" height="50" style="boder:0" />
+          <td>
+        </tr>
+        <tr>
+          <td height="25">
+            <!--此處onsubmit為"return false;"可防止表單提交，因為本例中用AJAX查詢，無需提交表單-->
+            <form onsubmit="return false;">
+              <!--分別為輸入框和按鈕都添加了事件監聽。迴車和點擊按鈕都可以進行查詢-->
+              <label for="q">在此輸入IP或網域<input maxLength="50" size="25" name="q" id="q" onkeypress="pressEnter(event, this.value); "  />
+              <input type="button" value="查詢" id="search" onclick="getGeoInfo(q.value)" /></label>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td height="20" id="info"></td>
+        </tr>
+        <tr>
+          <td>
+          	<div id="map" style="width:580px;height:350px"></div>
+          </td>
+        </tr>
+        <tr>
+          <td height="20" id="link">
+            <a href="http://blog.gmap2.net">Power by <strong>GMap2.net</strong></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

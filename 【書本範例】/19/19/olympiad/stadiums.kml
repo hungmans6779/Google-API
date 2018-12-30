@@ -1,0 +1,46 @@
+	<Folder>
+	<name>stadium</name>
+	<Placemark>
+		<name>works stadium</name>
+		<LookAt>
+			<longitude>116.4408066969197</longitude>
+			<latitude>39.9305083218427</latitude>
+			<altitude>0</altitude>
+			<range>1034.385818480644</range>
+			<tilt>0</tilt>
+			<heading>0.02625289688969279</heading>
+		</LookAt>
+		<Point>
+			<coordinates>116.4410340719198,39.92961342501729,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>nation stadium</name>
+		<LookAt>
+			<longitude>116.3818095537497</longitude>
+			<latitude>39.974525147466</latitude>
+			<altitude>0</altitude>
+			<range>158.1045973138813</range>
+			<tilt>-1.155571371368061e-010</tilt>
+			<heading>-0.01133559769331674</heading>
+		</LookAt>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Point>
+			<coordinates>116.3818393382806,39.97447433769452,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>capital stadium</name>
+		<LookAt>
+			<longitude>116.3220338686002</longitude>
+			<latitude>39.94214118517733</latitude>
+			<altitude>0</altitude>
+			<range>753.3384629537252</range>
+			<tilt>0</tilt>
+			<heading>-0.04993857998969691</heading>
+		</LookAt>
+		<Point>
+			<coordinates>116.3215720138395,39.94223062794177,0</coordinates>
+		</Point>
+	</Placemark>
+	</Folder>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+<script language="javascript">
+//<![CDATA[
+     var map;
+	 var ctrl=new GSmallMapControl();
+	 var marks=[];
+	 
+	 function load(){
+	  
+	   if(GBrowserIsCompatible()){
+	     map=new GMap2(document.getElementById("map"));
+		 map.addControl(new GMapTypeControl());
+		 map.addControl(new GLargeMapControl,new GControlPosition(G_ANCHOR_TOP_LEFT,new GSize(10,10)));
+		 map.addControl(ctrl,new GControlPosition(G_ANCHOR_BOTTOM_RIGHT,new GSize(10,10)));
+		 
+		 map.setCenter(new GLatLng(25.0579805152913,121.5400743484497),1);
+		 
+		 for(i=0;i<5;i++){
+		   marks[i]=new GMarker(new GLatLng(Math.floor(Math.random()*70+i),Math.floor(Math.random()*170+i)));
+		   map.addOverlay(marks[i]);
+		 }
+		 marks[0].openInfoWindowHtml("<div style='color:green'>這是<strong>第一個陣列位置</strong></div>");
+	   }  
+	 }
+	 
+	 
+	 // 關閉資訊視窗
+	 function closeInfoWinow(){
+	   map.closeInfoWindow();
+	 }
+	 
+	 
+	 // 移除Control物件
+	 function removeContorl(){
+	   map.removeControl(ctrl);
+	 }
+	 
+	 
+	 // 移除第0個陣列的marker
+	 function removeOverlay(){
+	   map.removeOverlay(marks[0]);
+	 }
+
+     // 移除所有的marker	 
+	 function clearOverlay(){
+	   map.clearOverlays();
+	 }
+	 
+//]]>
+</script>
+</head>
+
+<body onload="load()"   onUnload="GUnload()">
+  <div id="map" style="width:800px;height:300px"></div>
+  <hr />
+  <button onClick="closeInfoWinow()">關閉資訊視窗</button><br />
+  <button onClick="removeContorl()">移除Control物件</button><br />
+  <button onClick="removeOverlay()">移除第0個陣列的marker</button><br />
+  <button onClick="clearOverlay()">移除所有的marker</button><br />
+</body>
+</html>

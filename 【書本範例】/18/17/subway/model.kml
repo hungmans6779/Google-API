@@ -1,0 +1,15 @@
+<Document>
+	<name>resultLines.kml</name>	
+	<Style id="roadStyle">
+		<LineStyle>
+			<color>ff00ff55</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<name>resultLines</name>
+		<styleUrl>#roadStyle</styleUrl>
+		<MultiGeometry>
+		</MultiGeometry>
+	</Placemark>
+</Document>

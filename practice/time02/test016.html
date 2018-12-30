@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g" type="text/javascript"></script>
+<script language="javascript">
+//<![CDATA[
+
+
+     var map;
+	 var eventInfo;
+	 var mapInfo;
+	 var zoomInfo;
+	 
+     function load(){
+	    eventInfo=document.getElementById("eventInfo");
+	    mapInfo=document.getElementById("mapInfo");
+		zoomInfo=document.getElementById("zoomInfo");
+		
+	    if(GBrowserIsCompatible()){
+		  map=new GMap2(document.getElementById("map"));
+		  map.addControl(new GMapTypeControl());
+		  map.addControl(new GLargeMapControl(),new GControlPosition(G_ANCHOR_TOP_LEFT,new GSize(10,10)));
+		  var gp1=new GLatLng(25.0579805152913,121.5400743484497);
+		  map.setCenter(gp1,15);
+		  var marker1=new GMarker(gp1,{title:'易遊網旅行社'});
+		  map.addOverlay(marker1);
+		  
+		  GEvent.addListener(map,'click',function(overlay,point){
+		     var mark=new GMarker(point);
+			 map.addOverlay(mark);
+		  });
+		  
+		  
+		}   
+	 }
+	 
+	 
+	
+	 
+	 function upInfo(eventObj,info){
+	    eventObj.innerHTML=info;
+	 }
+	 
+	 
+	 // 新增拖拉事件
+	 function addDragListener(){
+	   GEvent.addListener(map,'dragstart',function(){
+	      upInfo(eventInfo,'現在的是 dragstart 事件');
+	   });
+	   
+	   GEvent.addListener(map,'drag',function(){
+	      upInfo(eventInfo,'現在的是 drag 事件');
+		  upInfo(mapInfo,'現在的地圖座標是  經度:'+map.getCenter().lat()+',緯度：'+map.getCenter().lng());
+	   });
+	   
+	   GEvent.addListener(map,'dragend',function(){
+	     upInfo(eventInfo,'現在的是 dragend 事件');
+	   });
+	 }
+	 
+	 
+	 
+	 // 新增zoomLevel 事件
+	 function addZoomLevelListener(){
+	    GEvent.addListener(map,'zoomstart',function(){
+		  upInfo(eventInfo,'現在的是 zoomstart 事件');
+		});
+		
+		GEvent.addListener(map,'zoomend',function(){
+		  upInfo(eventInfo,'現在的是 zoomend 事件');
+		  upInfo(zoomInfo,'地圖的 level ：'+map.getZoom());
+		});		
+	 }
+	 
+	 
+	 
+	 function addMapTypeListener(){
+	   GEvent.addListener(map,'maptypechanged',function(){
+	     upInfo(eventInfo,'現在的是 maptypechanged 事件');
+		 upInfo(mapTypeInfo,'地圖的類型:'+map.getCurrentMapType().getName());
+	   }); 
+	 }
+	 
+	
+	 
+	 
+//]]>
+</script>
+</head>
+
+<body onload="load()"  onGunload="GUnload()" >
+  <div id="map" style="width:500px;height:300px"></div>
+  <hr />
+  <button onclick="addDragListener()" >新增拖拉事件</button>
+  <button onclick="addZoomLevelListener()" >新增zoomLevel 事件</button>
+  <button onclick="addMapTypeListener()" >新增 mapType 事件</button>
+  <div id="eventInfo" ></div>
+  <div id="mapInfo"></div> 
+  <div id="zoomInfo"></div> 
+  <div id="mapTypeInfo"></div> 
+  
+</body>
+</html>

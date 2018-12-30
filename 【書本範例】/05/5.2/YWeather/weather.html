@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google地圖天氣預報</title>
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAXoMn1pOQQMsJyc2wmIpHQBS6FxO6VkPTQuT47nfYpRUsTigyOBTQI_3YqTBelbNCbZeBbKFeYJAz4g"></script>
+    <script language="JavaScript" src="http://j.maxmind.com/app/geoip.js"></script>
+    <script type="text/javascript" src="yweather.js"></script>
+    <script type="text/javascript">
+    
+    google.load("feeds", "1");
+    
+    function initialize()
+    {
+      //獲取地區的城市名和國家名
+      var country = geoip_country_name();
+      var city = geoip_city();
+      var yweather = new YWeather();
+      yweather.getWeather(city+'+'+country);
+    }
+    
+    function load(){
+      map = new GMap2(document.getElementById("map"), {mapTypes: [G_HYBRID_MAP]});
+      map.setCenter(new GLatLng(42, 107.5), 3);
+      google.setOnLoadCallback(initialize);
+    }
+    </script>
+
+  </head>
+  <body onload="load()">
+    <div id="map" style="width: 500px; height: 400px"></div>
+  </body>
+</html>

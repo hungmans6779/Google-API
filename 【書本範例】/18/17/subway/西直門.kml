@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+	<name>西直门.kml</name>
+	<Style id="sn_icon28_copy0">
+		<IconStyle>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal4/icon28.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_icon28_copy0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_icon28_copy0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_icon28_copy0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_icon28_copy0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal4/icon28.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>西直门</name>
+		<LookAt>
+			<longitude>116.3472993231563</longitude>
+			<latitude>39.94038792171467</latitude>
+			<altitude>0</altitude>
+			<range>640.1547167237154</range>
+			<tilt>7.678261319079427e-011</tilt>
+			<heading>-0.05163795032341473</heading>
+		</LookAt>
+		<styleUrl>#msn_icon28_copy0</styleUrl>
+		<Point>
+			<coordinates>116.3470047180493,39.94049847751101,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

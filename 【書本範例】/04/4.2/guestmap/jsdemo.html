@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Javascript數據收集測試</title>
+<script language="JavaScript" src="http://j.maxmind.com/app/geoip.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function collect_data(){
+    //取出API中的數據
+    var country_code = geoip_country_code();
+    var country = geoip_country_name();
+    var city = geoip_city();
+    var region_code = geoip_region();
+    var lat = geoip_latitude();
+    var lng = geoip_longitude();
+    
+    //構造遠程服務器中數據接收頁面的URL
+    //注意將"http://localhost/google/Chapter04/4.2/jscollector.php"改為實際的服務器地址
+    var src_url = "http://localhost/google/Chapter04/4.2/jscollector.php?";
+    src_url += "country_code=" + country_code;
+    src_url += "&country=" + country;
+    src_url += "&city=" + city;
+    src_url += "&region_code=" + region_code;
+    src_url += "&lat=" + lat;
+    src_url += "&lng=" + lng;
+    
+    //動態創建DOM節點
+    var ss = document.createElement("script");
+    ss.src = src_url;
+    ss.type="text/javascript";
+    document.documentElement.appendChild(ss);
+ }   
+//]]>
+</script>
+</head>
+
+<body onload="collect_data()">
+
+Javascript數據收集測試
+
+</body>
+</html>

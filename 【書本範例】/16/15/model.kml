@@ -1,0 +1,43 @@
+<Document>
+	<name>Route.kml</name>	
+	<Style id="roadStyle">
+		<LineStyle>
+			<color>00cf0064</color>
+			<width>6</width>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<name>from:</name>
+		<LookAt>
+			<longitude></longitude>
+			<latitude></latitude>
+			<altitude>0</altitude>
+			<range>1000.000238411872</range>
+			<tilt>45.00000000162498</tilt>
+			<heading>30.0</heading>
+		</LookAt>
+		<Point>
+			<coordinates></coordinates>			
+		</Point>
+	</Placemark>	
+	<Placemark>
+		<name>to:</name>
+		<LookAt>
+			<longitude></longitude>
+			<latitude></latitude>
+			<altitude>0</altitude>
+			<range>1000.000238411872</range>
+			<tilt>45.00000000162498</tilt>
+			<heading>30.0</heading>
+		</LookAt>
+		<Point>
+			<coordinates></coordinates>			
+		</Point>
+	</Placemark>	
+	<Placemark>
+		<name>lujin</name>
+		<styleUrl>#roadStyle</styleUrl>
+		<MultiGeometry>
+		</MultiGeometry>
+	</Placemark>
+</Document>

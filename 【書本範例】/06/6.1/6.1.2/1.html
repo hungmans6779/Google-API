@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ"
+      type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    //聲明GMap對象
+    var map;
+    //聲明GPolygon對象
+    var polygon;
+    
+    function load()
+    {
+      if (GBrowserIsCompatible())
+      {
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(39.92, 116.46), 4);
+      }
+    }
+    
+    function addPolygon(){
+      polygon = new GPolygon(
+        [
+           new GLatLng(39.92, 116.46),
+           new GLatLng(29.59, 106.54),
+           new GLatLng(28.01, 120.65)
+        ], //GLatLng()數組 
+        "#FF0000", //邊線顏色
+        10, //邊線寬度
+        0.8, //邊線透明度
+        "#00FF00", //填充顏色
+        0.5 //填充顏色透明度
+        ); 
+      map.addOverlay(polygon);
+    }
+    
+    function addPolygon2(){
+      polygon = new GPolygon(
+        [
+           new GLatLng(39.92, 116.46),
+           new GLatLng(29.59, 106.54),
+           new GLatLng(28.01, 120.65),
+           new GLatLng(39.92, 116.46)
+        ], //GLatLng()數組 
+        "#FF0000", //邊線顏色
+        10, //邊線寬度
+        0.8, //邊線透明度
+        "#00FF00", //填充顏色
+        0.5 //填充顏色透明度
+        ); 
+      map.addOverlay(polygon);
+    }
+    
+    function removePolygon(){
+      polygon.remove();
+    }
+//]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 500px; height: 400px;"></div>
+    <p>
+    <input type="button" value="新增polygon(方法1)" onclick="addPolygon()" />
+    <input type="button" value="新增polygon(方法2)" onclick="addPolygon2()" />
+    <input type="button" value="移除polygon" onclick="removePolygon()" />
+    </p>
+  </body>
+</html>

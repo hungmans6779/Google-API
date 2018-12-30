@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+       <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAASjhnTxkK4PHeTvotGA4KwRQnhyboVVH9KtBmLE3oPvrcP_8ymxTpyXEe_daj6muiNxQugNtGcqw-Vw" type="text/javascript"></script>
+
+    <script language="javascript">
+	<!--	
+	  function load(){
+	    var map;
+	    if(GBrowserIsCompatible()){
+		  map=new GMap2(document.getElementById("map"));
+		  map.addControl(new GMapTypeControl());		 		  
+		  map.addControl(new GLargeMapControl(),new GControlPosition(G_ANCHOR_BOTTOM_LEFT,new GSize(10,10)));
+		  map.addControl(new GSmallMapControl(),new GControlPosition(G_ANCHOR_BOTTOM_RIGHT,new GSize(10,10)));		  		 		  
+		  map.setCenter(new GLatLng(25.040037864868324,121.5601372718811),15);
+		}else{
+		  alert("建立地圖失敗！！！");
+		}  
+	  }
+	-->
+	</script>
+  </head>
+
+  <body onload="load()"  onunload="GUnload()" >
+    <div id="map" style="width:480px;height:320px";align="center"></div>
+    
+  </body>
+</html>

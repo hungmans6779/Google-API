@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false
+      &amp;key=ABQIAAAASjhnTxkK4PHeTvotGA4KwRTQ5BsKmbHJTAiFcX8GQ-SBdwobzBSE-O4SbValEo6XyYc42W7BlewB4g"
+      type="text/javascript">
+    </script>
+    <script language="javascript">
+	//<![CDATA[
+	   var map;
+	   function load(){	  
+	     if(GBrowserIsCompatible()){
+		   map=new GMap2(document.getElementById("map"));
+		   map.addControl(new GMapTypeControl());
+		   map.addControl(new GLargeMapControl(),new GControlPosition(G_ANCHOR_BOTTOM_LEFT,GSize(10,10)));
+		   map.addControl(new GSmallMapControl(),new GControlPosition(G_ANCHOR_BOTTOM_RIGHT,GSize(10,10)));
+		   map.addControl(new GScaleControl());
+		   var gpoint1=new GLatLng(25.0579805152913,121.5400743484497);
+		   map.setCenter(gpoint1,16);
+		   var mk1=new GMarker(gpoint1);
+		   map.addOverlay(mk1);
+		   
+		   var tabs=[];		   
+		   tabs[0]=new GInfoWindowTab("Tab1","<div style='color:blue;width:300px'>This is a tab1 的 內容</div>");
+		   tabs[1]=new GInfoWindowTab("Tab2","<div style='color:red;width:300px'>This is a tab2 的 內容</div>");
+		   tabs[2]=new GInfoWindowTab("Tab3","<div style='color:green;width:300px'>This is a tab3 的 內容</div>");
+		   		 
+		   mk1.openInfoWindowTabsHtml(tabs);
+		   GEvent.addListener(map,"move",getXYAxis);
+		   getXYAxis();
+		 }else{
+		   alert("載入GoogleMap 失敗！！！");
+		 }
+	   }
+	   
+	   
+	   function getXYAxis(){
+	     var latLng=map.getCenter();
+		 document.getElementById("X").value=latLng.lat();
+		 document.getElementById("Y").value=latLng.lng();
+	   }
+	   
+	   
+	//]]>
+	</script>
+  </head>
+
+  <body onload="load()"  onunload="GUnload()">
+    <div id="map" style="width:800px;height:500px" ></div><br />
+    緯度：<input type="text" id="X" size="30" /><br>
+    經度：<input type="text" id="Y" size="30" /><br>    
+  </body>
+</html>

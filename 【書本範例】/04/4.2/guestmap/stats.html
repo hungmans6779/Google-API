@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>BLOG訪客地域來源記錄</title>
+<script type="text/javascript">
+//<![CDATA[
+
+//當前頁碼
+var page = 0;
+//每頁記錄數
+var pagesize = 500;
+//記錄的地址，注意改成真實的地圖輸出地址
+var url = "http://localhost/guestmap/output.php";
+
+
+//更改Iframe裡加載的頁面
+function change_src(){
+  var src = url+"?page=" + page + "&pagesize=" +pagesize;
+  window.frames["gmapframe"].document.location.replace(src)
+}
+
+//下一條信息
+function next_rec(){
+  page++;
+  change_src()
+}
+ 
+//上一條信息
+function prior_rec(){
+  page--;
+  change_src()
+}
+
+//]]>
+</script>
+</head>
+
+<body style="text-align:center;">
+<h1>BLOG訪客地域來源記錄</h1>
+<p><iframe id="gmapframe" name="gmapframe" width="100%" height="420px" frameborder="0" scrolling="no" src="http://localhost/guestmap/output.php"></iframe></p>
+<p>
+<input type="button" value="上一條信息" id="prior" name="prior" onclick="prior_rec()" />
+<input type="button" value="下一條信息" id="next" name="next" onclick="next_rec()" />
+<!--
+注意在改變每頁大小輸入框裡內容改變時，判斷鍵入的是不是數字，若不是則忽略
+這裡用到了兩個事件onkeyup和onbeforepaste，其中用正則表達式替換非數字的值
+同時把重新加載改變每頁大小後的第一頁
+-->
+每頁大小<input type="text" value="500" id="pagesize" name="pagesize" onkeyup="value=value.replace(/[^\d]/g,'');page = 0; pagesize = value; change_src()" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,'')); page = 0; pagesize = value; change_src()" />
+</p>
+</body>
+</html>

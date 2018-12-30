@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Google Maps JavaScript API Example</title>
+<!--導入Google Maps API庫文件。注意將本代碼中的API Key替換為前文申請到的API Key-->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA1j86tnUDFv8OAtC8dZVtKRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSzmwrQ90SNUILzGRpsBiaa860gfQ"
+      type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    //聲明GMap對象
+    var map;
+    
+    function load()
+    {
+      if (GBrowserIsCompatible())
+      {
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(39.92, 116.46), 4);
+        loadXmlData("example.xml");
+      }
+    }
+    
+    //加載折線，返回值為被新增的折線
+    function addPolyline(node){
+      //加載邊線顏色，寬度，透明度
+      var color = node.getAttribute("color");
+      var width  = parseFloat(node.getAttribute("width"));
+      var opacity  = parseFloat(node.getAttribute("opacity"));
+      
+      //加載頂點
+      var points = node.getElementsByTagName("point");
+      var pts = [];
+      for (var i = 0; i < points.length; i++)
+      {
+         pts[i] = new GLatLng(parseFloat(points[i].getAttribute("lat")),
+                             parseFloat(points[i].getAttribute("lng")));
+      }
+      
+      //新增折線
+      var polyline = new GPolyline(pts, color, width, opacity);
+      map.addOverlay(polyline);
+      return polyline;
+    }
+    
+    //加載多邊形，返回值為被新增的多邊形
+    function addPolygon(node)
+    {
+      //加載邊線顏色，寬度，透明度
+      var color = node.getAttribute("color");
+      var width  = parseFloat(node.getAttribute("width"));
+      var opacity  = parseFloat(node.getAttribute("opacity"));
+      
+      //加載填充顏色，透明度
+      var fillcolor  = node.getAttribute("fillcolor");
+      var fillopacity  = parseFloat(node.getAttribute("fillopacity"));
+      
+      //加載頂點
+      var points = node.getElementsByTagName("point");
+      var pts = [];
+      for (var i = 0; i < points.length; i++)
+      {
+         pts[i] = new GLatLng(parseFloat(points[i].getAttribute("lat")),
+                             parseFloat(points[i].getAttribute("lng")));
+      }
+      
+      //新增多邊形
+      var polygon = new GPolygon(pts, color, width, opacity, fillcolor, fillopacity);
+      map.addOverlay(polygon);
+      return polygon;
+    }
+    
+    function loadXmlData(xmlfile)
+    {
+      //創建GXmlHttp
+      var request = GXmlHttp.create();
+      request.open("GET", xmlfile, true);
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          var xmlDoc = request.responseXML;
+          
+          // ========= 獲取polyline節點 ===========
+          var polylines = xmlDoc.documentElement.getElementsByTagName("polyline");
+          // 處理每一個節點
+          for (var i = 0; i < polylines.length; i++)
+          {
+            addPolyline(polylines[i]);
+          }
+          // ========= 獲取polylgon節點 ===========
+          var polygon = xmlDoc.documentElement.getElementsByTagName("polygon");
+          // 處理每一個節點
+          for (var i = 0; i < polylines.length; i++)
+          {
+            addPolygon(polygon[i]);
+          }
+          // ================================================
+        }
+      }
+      request.send(null);
+    }
+    
+    
+//]]>
+    </script>
+  </head>
+  <!--加載時調用load()函數加載地圖，注意加上onunload="GUnload()"防止內存泄露-->
+  <body onload="load()" onunload="GUnload()">
+    <!--以下id為map的DIV元素即為Google地圖的容器-->
+    <div id="map" style="width: 500px; height: 400px;"></div>
+  </body>
+</html>

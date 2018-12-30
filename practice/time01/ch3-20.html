@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAASjhnTxkK4PHeTvotGA4KwRTQ5BsKmbHJTAiFcX8GQ-SBdwobzBSE-O4SbValEo6XyYc42W7BlewB4g"
+      type="text/javascript">
+    </script>
+    <script language="javascript">
+	//<![CDATA[
+	     var map;
+		 function load(){
+		   if(GBrowserIsCompatible()){
+		     map=new GMap2(document.getElementById("map"));
+             map.enableScrollWheelZoom();
+ 			 var hk=new GKeyboardHandler(map);
+			 map.addControl(new GMapTypeControl());
+			 map.addControl(new GLargeMapControl(),new GControlPosition(G_ANCHOR_TOP_RIGHT,new GSize(10,10)));
+			 map.addControl(new GSmallMapControl(),new GControlPosition(G_ANCHOR_BOTTOM_LEFT,new GSize(10,10)));
+			 map.addControl(new GScaleControl());
+			 var gpoint1= new GLatLng(40, 158.9);
+			 map.setCenter(gpoint1,2);
+			 
+		   }else{
+		     alert("無法載入GoogleMap 地圖！！！");
+		   }
+		 }
+		 
+		 function openXML(urlXml){
+		   var gx=new GGeoXml(urlXml);
+           map.addOverlay(gx);
+		 }
+	//]]>
+	</script>
+  </head>
+  
+  <body onload="load()"  onunload="GUnload()" >
+    <div id="map" style="width:800px;height:480px" ></div>
+    <input type="button" value="載入KML文件" onclick="openXML('http://kml.lover.googlepages.com/my-vacation-photos.kml')" /><br />
+    <input type="button" value="載入GeoRSS文件" onclick="openXML('http://slashgeo.org/index.rss')" /><br />
+    
+  </body>
+</html>
